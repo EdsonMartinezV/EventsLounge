@@ -17,5 +17,14 @@ Route::get('/', function () {
     return view('login');
 });
 
+/* ---- Employee Routes ---- */
+Route::get('/empleado', function () {
+    return view('empleadoDashboard');
+});
+
+/* ---- Manager Routes ---- */
+Route::get('/gerente', function () {
+    return view('gerenteDashboard');
+});
 //validar login
 Route::post('/validate',[UserController::class, 'validate'])->name('user.validate');
