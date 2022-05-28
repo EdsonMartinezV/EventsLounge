@@ -18,13 +18,13 @@ Route::get('/', function () {
 });
 
 /* ---- Employee Routes ---- */
-Route::get('/empleado', function () {
-    return view('empleadoDashboard');
+Route::get('/employee', function () {
+    return view('employeeDashboard');
 });
 
 /* ---- Manager Routes ---- */
-Route::get('/gerente', function () {
-    return view('gerenteDashboard');
+Route::get('/manager', function () {
+    return view('managerDashboard');
 });
 //validar login
 Route::post('/validate',[UserController::class, 'validate'])->name('user.validate');
