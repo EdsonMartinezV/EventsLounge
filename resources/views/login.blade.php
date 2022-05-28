@@ -7,20 +7,18 @@
 	<link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/prueba.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Datos</title>
+	<title>Iniciar Sesión</title>
 </head>
 <body>
-	<form  id="loginForm">
+	<form id="loginForm">
 		@csrf
 		correo
 		<input type="email" name="mail" id="email">
 		contraseña:
 		<input type="password" name="pass" id="password">
-        <span class="badge badge-pill badge-danger" id="error"></span>
 		<button type="submit">Ingresar</button>
+        <span class="badge badge-pill badge-danger" id="error"></span>
         
 	</form>
 
