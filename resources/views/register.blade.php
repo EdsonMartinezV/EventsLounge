@@ -38,7 +38,7 @@
                 <br/>
                 <span class="badge badge-pill badge-danger" id="resultado"></span>
                 <br/>
-                  <a href="/register">¿Ya eres cliente? Inicia Sesión</a>
+                  <a href="/login">¿Ya eres cliente? Inicia Sesión</a>
 	</form>
     
     </div>
