@@ -9,7 +9,7 @@ use App\Resources\UserResource;
 
 class UserController extends Controller
 {
-    public function login(Request $request){
+    public function validate(Request $request){
         
         $user = User::where('email', $request->email)->first();
 
