@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 /* ---- Employee Routes ---- */
@@ -26,3 +26,5 @@ Route::get('/empleado', function () {
 Route::get('/gerente', function () {
     return view('gerenteDashboard');
 });
+//validar login
+Route::post('/validate',[UserController::class, 'validate'])->name('user.validate');
