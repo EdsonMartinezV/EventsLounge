@@ -38,10 +38,50 @@
                 <br/>
                 <span class="badge badge-pill badge-danger" id="resultado"></span>
                 <br/>
-                  <a href="/">¿Ya eres cliente? Inicia Sesión</a>
+                  <a href="/register">¿Ya eres cliente? Inicia Sesión</a>
 	</form>
     
     </div>
     
+    </body>
+</html>
+
+<script>
+    document.getElementById('submit').addEventListener('click',function(e) {
+        e.preventDefault();
+
+        var data = {
+            name: document.getElementById('username').value,
+            lastname: document.getElementById('lastname').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+        }
+
+        fetch("/register-user", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers:{
+                'X-CSRF-TOKEN': '{{ csrf_token()}}',
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(function(response){
+            if(response.ok){
+                return response.text()
+            }else{
+                throw "Error en la llamada AJAX";
+            }
+        })
+        .then(function(text){
+            //document.getElementById('resultado').innerText=text
+            window.location.href = '/packs';
+        })
+        .catch(function(err){
+            console.log(err);
+        });
+});
+    </script>
+
+
     </body>
 </html>

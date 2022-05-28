@@ -34,15 +34,25 @@ class UserController extends Controller
             return response()->json(['success'=>'Ingreso exitoso']);
         }
     }  
-    
-    public function register(Request $request){
-        
-    }   
-
+ 
     public function logout(Request $request) {
         Auth::logout();
         return redirect('/');
       }
+    
+    public function register(Request $request){
+        $variables = $request->all();
+        $user = new User();
+        $user->name = $request->name;
+        $user->surname = $request->lastname;
+        $user->email = $request->email;
+        $user->password= $request->password;
+        $user->role= 'client';
+        $user->save();
+       
+        return response()->json($variables);
+       
+    }
 
 
 }

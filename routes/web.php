@@ -15,7 +15,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('packs');
 });
 
 Route::get('/register', function () {
@@ -28,10 +28,6 @@ Route::get('/packs', function () {
     return view('packs');
 });
 
-Route::get('/packages', function () {
-    return view('packages');
-});
-
 Route::get('/bookings', function () {
     return view('bookings');
 });
@@ -42,7 +38,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-
+//Validar login
+Route::post('/validate',[UserController::class, 'validate'])->name('user.validate');
+//Registrar
+Route::post('/register-user',[UserController::class, 'register'])->name('user.register');
 
 /* ---- Employee Routes ---- */
 Route::get('/employee', function () {
@@ -53,5 +52,4 @@ Route::get('/employee', function () {
 Route::get('/manager', function () {
     return view('managerDashboard');
 });
-//validar login
-Route::post('/validate',[UserController::class, 'validate'])->name('user.validate');
+
