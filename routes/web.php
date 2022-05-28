@@ -38,10 +38,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+
 //Validar login
-Route::post('/validate',[UserController::class, 'validate'])->name('user.validate');
+Route::post('/validate',[UserController::class, 'validateUser'])->name('user.validate');
 //Registrar
-Route::post('/register-user',[UserController::class, 'register'])->name('user.register');
+Route::post('/register-user',[UserController::class, 'registerUser'])->name('user.register');
 
 /* ---- Employee Routes ---- */
 Route::get('/employee', function () {

@@ -58,8 +58,8 @@
                 method: 'POST',
                 data:{
                     _token: token,
-                    correo: $("#email").val(),
-                    contraseña: $("#password").val()
+                    email: email,
+                    password: password
                 }
     
             }).done(function(res){

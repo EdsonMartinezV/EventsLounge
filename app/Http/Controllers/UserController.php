@@ -9,12 +9,12 @@ use App\Resources\UserResource;
 
 class UserController extends Controller
 {
-    public function validate(Request $request){
+    public function validateUser(Request $request){
         
         $user = User::where('email', $request->email)->first();
 
          //valida que se ingresen ambos campos
-        if(empty($request->password)||empty($request->password)){
+        if(empty($request->email)||empty($request->password)){
             return response()->json(['error'=>'Ingrese ambos campos']);
         }
 
@@ -25,7 +25,7 @@ class UserController extends Controller
 
         //verifica si no existe esa contraseña
         else if($request->password != $user->password ){
-            return response()->json(['error'=>'Ingrese otra contraseña']);
+            return response()->json(['error'=>'Contraseña incorrecta']);
         }
 
         //valida y autentica usuario
@@ -40,7 +40,7 @@ class UserController extends Controller
         return redirect('/');
       }
     
-    public function register(Request $request){
+    public function registerUser(Request $request){
         $variables = $request->all();
         $user = new User();
         $user->name = $request->name;
