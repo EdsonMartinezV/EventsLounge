@@ -5,7 +5,7 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	margin: 0;
-	color: #666;
+	color: rgb(102, 102, 102);
 }
 
 /* Typography */
@@ -206,7 +206,7 @@ nav {
 			}
 			
 				nav ul li a:hover {
-					background: #0b76a6;
+					background: #2a4f60;
 				}
 
 				.testbutton {
@@ -215,7 +215,7 @@ nav {
 					font-size: 14px;
 					padding: 5px 20px;
 					border-radius: 10px;
-					background: #343434;
+					background: #3b2727;
 				  }
 				  .testbutton:hover {
 					color: #ffffff !important;
@@ -233,7 +233,7 @@ nav {
 					  position: fixed;
 					  width: 100%;
 					  height: 100vh;
-					  background: rgba(0,0,0,0.6);
+					  background: rgba(43, 96, 90, 0.6);
 					  z-index: -1;
 					  top: 0;left: 0;
 				  }
@@ -291,7 +291,7 @@ nav {
 				  }
 				  .container-menu{
 					  position: absolute;
-					  background: rgba(0,0,0,0.5);
+					  background: rgba(63, 99, 149, 0.5);
 					  width: 100%;
 					  height: 100vh;
 					  top: 0;left: 0;
@@ -306,7 +306,7 @@ nav {
 				  .cont-menu{
 					  width: 100%;
 					  max-width: 250px;
-					  background: #1c1c1c;
+					  background: #195e57;
 					  height: 100vh;
 					  position: relative;
 					  transition: all 500ms ease;
