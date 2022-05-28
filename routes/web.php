@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+//validar login
+Route::post('/validate',[UserController::class, 'validate'])->name('user.validate');
