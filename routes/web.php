@@ -32,7 +32,7 @@ Route::get('/bookings', function () {
     return view('bookings');
 });
 Route::get('/booking', function () {
-    return view('bookingForm');
+    return view('booking');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
