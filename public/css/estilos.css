@@ -850,9 +850,7 @@
      text-align: left;
      vertical-align: middle;
     }
- .main-menu ul>li:nth-child (6) {
-     padding-right: 0px;
-}
+
  .nav>li {
      position: inherit;
      display: inline-block;
@@ -970,8 +968,8 @@ font-weight: bold;
       transition: all 0.3s ease-in;
 }
  .Search_btn:hover {
-     background: #428713;
-     border: #428713 solid 1px;
+     background: #55ce7f;
+     border: #55ce7f solid 1px;
      color: #fff;
      transition: all 0.3s ease-in;
 
@@ -994,8 +992,8 @@ text-align: center;
 margin-right: 10px;
  }
  .text-bg a:hover {
-     background-color: #428713;
-     border: #428713 solid 1px;
+     background-color: #55ce7f;
+     border: #55ce7f solid 1px;
     color: #fff;
 }
  .text {
@@ -1078,7 +1076,7 @@ background-repeat: no-repeat;
      line-height: 40px;
      font-size: 45px;
      text-transform:uppercase;
-     background: #547d13;
+     background: #55ce7f;
      display: inline-block;
      padding: 20px 30px;
 
@@ -1106,8 +1104,8 @@ border-radius: 30px;
 
 
  .about .about-box a:hover{ 
-     background-color: #428713;
-     border: #428713 solid 1px;
+     background-color: #55ce7f;
+     border: #55ce7f solid 1px;
     color: #fff;
  }
  .about .about-box_img figure {
@@ -1151,7 +1149,7 @@ display: block;
     align-items: center;
     right: 0;
     top: 44%;
-    background: #428713;
+    background: #55ce7f;
     padding: 19px 27px;
     border-radius: 88px;
     margin-right: -20px;
@@ -1195,7 +1193,7 @@ display: block;
      padding-bottom: 60px;
 }
 .titlepage span {padding-top: 30px; display: inline-block; font-size: 17px; color: #000;}
-.llow {color: #488d1c; font-weight: bold;}
+.llow {color: #55ce7f; font-weight: bold;}
  .titlepage h2 {
      text-transform: uppercase;
      padding: 0;
@@ -1273,18 +1271,18 @@ background-color: #052501;
 border-radius: 50px;
 }
 #testimonial_slider .carousel-indicators li.active {
-     background-color: #4bc714;
+     background-color: #55ce7f;
 }
 
 
 .testimonial_cont {
-    background: #428713cc;
+    background: #55ce7f;
     min-height: 295px;
     padding: 60px 40px;
 }
 .text_align_center {
     text-align: center;
-background: #428713;
+background: #55ce7f;
 }
 .ornage_color {
 font-size: 19px;
@@ -1295,7 +1293,7 @@ font-weight: normal;
  .copyright {
      padding: 20px 0px;
 
-     background-color: #428713;
+     background-color: #1c6335;
 }
  .copyright p {
      color: #fff;
@@ -1310,5 +1308,4 @@ font-weight: normal;
  .copyright a:hover {
      color: #ff7e1d ;
 }
-/** end footer **/
-/*--------------------------------------------------------------------- ener page css ---------------------------------------------------------------------*/
+

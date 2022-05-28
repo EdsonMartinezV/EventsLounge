@@ -28,10 +28,16 @@ Route::get('/packs', function () {
     return view('packs');
 });
 
+Route::get('/packages', function () {
+    return view('packages');
+});
+
 Route::get('/bookings', function () {
     return view('bookings');
 });
-
+Route::get('/booking', function () {
+    return view('bookingForm');
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
