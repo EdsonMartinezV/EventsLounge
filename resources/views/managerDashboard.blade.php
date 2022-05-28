@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">    
-    <title>Manager Dashboard</title>
+	<meta charset="UTF-8">
+	<title>Manager Dshboard</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    @include ('header')
-    <div id="leftcloumn">
-    <hr class="sidebar-divider my-0">
-    <div  class= "testbutton"><a href="/">Accion 1 gerente</a>
-    <hr class="sidebar-divider my-0"></div>
-    <div  class= "testbutton"><a href="/">Accion 2 gerente</a>
-    <hr class="sidebar-divider my-0"></div>
-    <div  class= "testbutton"><a href="/">Accion 4 gerente</a>
-    <hr class="sidebar-divider my-0"></div>
-    <div  class= "testbutton"><a href="/">Accion 5 gerente</a>
-    <hr class="sidebar-divider my-0"></div>
-    <div  class= "testbutton"><a href="/">Accion 6 gerente</a>
-    <hr class="sidebar-divider my-0"></div>
-    <div  class= "testbutton"><a href="/">Accion 7 gerente</a>
-    <hr class="sidebar-divider my-0"></div>
-    <div  class= "testbutton"><a href="/">Accion 8 gerente</a>
-    </div>
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>Logotipo</h1>
+			</div>
+			<nav class="menu">
+				<a href="/">Home</a>
+			</nav>
+		</div>
+	</header>
+	<div class="capa"></div>
+<!--	--------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="/">1st Manager Action</a>
+			<a href="/">2nd Manager Action</a>
+			<a href="/">3rd Manager Action</a>
+			<a href="/">4th Manager Action</a>
+			<a href="/">5th Manager Action</a>
+			<a href="/">6th Manager Action</a>
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
 </body>
 </html>
