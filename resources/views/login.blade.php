@@ -11,16 +11,31 @@
 	<title>Iniciar Sesión</title>
 </head>
 <body>
+	
+@include ('header')
+<body background="/images/eventos.jpeg">
+    <div class="login-box">
+			<div class="box-header">
+				<h2>Iniciar Sesión</h2>
+			</div>
+          
 	<form id="loginForm">
 		@csrf
-		correo
+		<label for="email">Correo electronico</label>
+        <br/>
 		<input type="email" name="mail" id="email">
-		contraseña:
-		<input type="password" name="pass" id="password">
-		<button type="submit">Ingresar</button>
+        <br/>
+		<label for="password">Contraseña</label>
+        <br/>
+		<input type="password" name="contra" id="password">
+		<br/>
+        <button type="submit">Ingresar</button>
+        <br/>
         <span class="badge badge-pill badge-danger" id="error"></span>
-        
+        <br/>
+        <a href="/register">¿Eres nuevo? Registrate aquí</a>
 	</form>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>

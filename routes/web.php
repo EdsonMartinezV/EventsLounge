@@ -18,6 +18,26 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::get('/logout', [UserController::class, 'logout']);
+
+Route::get('/packs', function () {
+    return view('packs');
+});
+
+Route::get('/bookings', function () {
+    return view('bookings');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+
+
 /* ---- Employee Routes ---- */
 Route::get('/employee', function () {
     return view('employeeDashboard');
