@@ -12,7 +12,7 @@
 			<label for="btn-menu">☰</label>
 		</div>
 			<div class="logo">
-				<h1>Logotipo</h1>
+				<h1>Manager Dashboard</h1>
 			</div>
 			<nav class="menu">
 				<a href="/">Home</a>
