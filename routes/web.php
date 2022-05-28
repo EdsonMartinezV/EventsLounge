@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClientController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,4 +58,8 @@ Route::get('/employee', function () {
 Route::get('/manager', function () {
     return view('managerDashboard');
 });
+
+/* ---- Rutas cliente ---- */
+Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
+
 

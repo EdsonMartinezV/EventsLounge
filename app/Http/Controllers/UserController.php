@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use App\Resources\UserResource;
+
 
 class UserController extends Controller
 {
@@ -49,6 +49,8 @@ class UserController extends Controller
         $user->password= $request->password;
         $user->role= 'client';
         $user->save();
+
+        Auth::login($user);
        
         return response()->json($variables);
        
