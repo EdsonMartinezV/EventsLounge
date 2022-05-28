@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* ---- Employee Routes ---- */
+Route::get('/empleado', function () {
+    return view('empleadoDashboard');
+});
+
+/* ---- Manager Routes ---- */
+Route::get('/gerente', function () {
+    return view('gerenteDashboard');
+});
