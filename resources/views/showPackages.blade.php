@@ -13,5 +13,6 @@
 @include ('header')
 </br>
     <center><h1>Lista de paquetes</h1></center>
+    <a class="testbutton" href="/booking"> Crear paquete </a>
 </body>
 </html>

@@ -14,5 +14,6 @@
 @include ('managerDashboard')
 </br>
     <center><h1>Abonos</h1></center>
+    
 </body>
 </html>
