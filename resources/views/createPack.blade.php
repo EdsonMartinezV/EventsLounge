@@ -12,8 +12,7 @@
 <body>
 @include ('header')
 </br>
-    <center><h1>Lista de ventos</h1></center>
-    </br>
-    <a class="testbutton" href="/booking"> Editar Evento</a>
+    <center><h1>Crear Paquete</h1></center>
+</br>
 </body>
 </html>
