@@ -173,15 +173,16 @@
                 const $tdu2 = document.createElement('td')
                 const $tdu3 = document.createElement('td')
                 const $in1 = document.createElement('input')
+                $in1.id = 'input1';
                 const $in2 = document.createElement('input')
+                $in2.id = 'input2';
                 const $buttonUpdateU = document.createElement('button')
           
                 $buttonUpdateU.textContent = "Actualizar"
                 $buttonUpdateU.id ='btnUpdate';
                 $in1.setAttribute('value',item.event_date)
-                $in1.id = 'date'
+           
                 $in2.setAttribute('value',item.price)
-                $in2.id = 'price'
                 $tdu1.appendChild($in1)
                 $tdu2.appendChild($in2)
                 $tdu3.appendChild($buttonUpdateU)
@@ -193,13 +194,26 @@
                 $fragmentu.appendChild($tru)
                 
                 $bookings.appendChild($fragmentu)
-                
-            })
-            console.log(document.getElementById('btnUpdate'))
-            //Actualizar evento
-            document.getElementById('btnUpdate').addEventListener('click',function Update(e) {
+
+                 //Actualizar evento
+            $buttonUpdateU.addEventListener('click',function Update(e) {
             
-            fetch("", {
+            console.log(document.getElementById('input1').value)
+            console.log(document.getElementById('input2').value)
+
+            var dataupdateregister = {
+                date: document.getElementById('input1').value,
+                price: document.getElementById('input2').value
+            }
+            fetch("/update-booking/"+event.id, {
+                body: JSON.stringify(
+                    dataupdateregister
+                ),
+                method: "PUT",
+                headers:{
+                    'X-CSRF-TOKEN': '{{ csrf_token()}}',
+                    "Content-type": "application/json; charset=UTF-8"
+                }
             })
             .then(function(response){
                 if(response.ok){
@@ -209,10 +223,14 @@
                 }
             })
             .then(function(eventu){
-
+                tolist(e);
                 })
 
             });
+                
+            })
+            
+           
 
       
             });

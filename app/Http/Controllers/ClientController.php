@@ -34,4 +34,12 @@ class ClientController extends Controller
        
         return $bookings->toJson();
     }
+
+    public function updateBooking(Request $request, $id){
+        
+        Event::where('id',$id)->update(['event_date'=>$request->date,'price'=>$request->price]);
+        $bookings = Event::where('id',$id)->get();
+       
+        return $bookings->toJson();
+    }
 }
