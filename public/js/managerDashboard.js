@@ -153,7 +153,7 @@
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
                     $tdPrice.textContent = event.price
-                    $tdIsConfirmed.textContent = event.is_confirmed
+                    $tdIsConfirmed.textContent = event.is_confirmed ? 'Si' : 'No'
                     $tdUser.textContent = event.user_id
 
                     $tr.appendChild($tdId)
