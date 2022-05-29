@@ -70,43 +70,31 @@
                 $mainTableBody.innerHTML = ''
 
                 const $tdId = document.createElement('td'),
-                    $tdEventDate = document.createElement('td',),
-                    $tdPrice = document.createElement('td'),
-                    $tdIsConfirmed = document.createElement('td'),
-                    $tdUser = document.createElement('td')
-
+                    $tdName = document.createElement('td',),
+                    $tdPrice = document.createElement('td')
+                    
                 $tdId.textContent = 'ID'
-                $tdEventDate.textContent = 'Fecha del evento'
+                $tdName.textContent = 'Nombre'
                 $tdPrice.textContent = 'Precio'
-                $tdIsConfirmed.textContent = 'Confirmado'
-                $tdUser.textContent = 'Usuario'
-
+                
                 $fragment.appendChild($tdId)
-                $fragment.appendChild($tdEventDate)
+                $fragment.appendChild($tdName)
                 $fragment.appendChild($tdPrice)
-                $fragment.appendChild($tdIsConfirmed)
-                $fragment.appendChild($tdUser)
                 $mainTableHeadRow.appendChild($fragment)
 
                 packs.forEach((pack) => {
                     const $tr = document.createElement('tr'),
                         $tdId = document.createElement('td'),
-                        $tdEventDate = document.createElement('td'),
-                        $tdPrice = document.createElement('td'),
-                        $tdIsConfirmed = document.createElement('td'),
-                        $tdUser = document.createElement('td')
-
+                        $tdName = document.createElement('td'),
+                        $tdPrice = document.createElement('td')
+                        
                     $tdId.textContent = pack.id
-                    $tdEventDate.textContent = pack.event_date
-                    $tdPrice.textContent = pack.price
-                    $tdIsConfirmed.textContent = pack.is_confirmed
-                    $tdUser.textContent = pack.user_id
+                    $tdName.textContent = pack.name
+                    $tdPrice.textContent = `$ ${pack.price}`
 
                     $tr.appendChild($tdId)
-                    $tr.appendChild($tdEventDate)
+                    $tr.appendChild($tdName)
                     $tr.appendChild($tdPrice)
-                    $tr.appendChild($tdIsConfirmed)
-                    $tr.appendChild($tdUser)
                     $mainTableBody.appendChild($tr)
                 })
                 console.log(packs)
@@ -152,8 +140,8 @@
 
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
-                    $tdPrice.textContent = event.price
-                    $tdIsConfirmed.textContent = event.is_confirmed ? 'Si' : 'No'
+                    $tdPrice.textContent = `$ ${event.price}`
+                    event.is_confirmed == 1 ? $tdIsConfirmed.textContent = 'Si' : $tdIsConfirmed.textContent = 'No'
                     $tdUser.textContent = event.user_id
 
                     $tr.appendChild($tdId)
@@ -174,7 +162,38 @@
         fetch('/manager/paids')
             .then((res) => res.ok ? res.json() : Promise.reject(res))
             .then((paids) => {
-                console.log(paids);
+                $mainTableHeadRow.innerHTML = ''
+                $mainTableBody.innerHTML = ''
+
+                const $tdId = document.createElement('td'),
+                    $tdAmount = document.createElement('td',),
+                    $tdEventId = document.createElement('td')
+                    
+                $tdId.textContent = 'ID'
+                $tdAmount.textContent = 'Costo'
+                $tdEventId.textContent = 'Evento'
+                
+                $fragment.appendChild($tdId)
+                $fragment.appendChild($tdAmount)
+                $fragment.appendChild($tdEventId)
+                $mainTableHeadRow.appendChild($fragment)
+
+                paids.forEach((paid) => {
+                    const $tr = document.createElement('tr'),
+                        $tdId = document.createElement('td'),
+                        $tdAmount = document.createElement('td'),
+                        $tdEventId = document.createElement('td')
+                        
+                    $tdId.textContent = paid.id
+                    $tdAmount.textContent = paid.amount
+                    $tdEventId.textContent = paid.event_id
+
+                    $tr.appendChild($tdId)
+                    $tr.appendChild($tdAmount)
+                    $tr.appendChild($tdEventId)
+                    $mainTableBody.appendChild($tr)
+                })
+                console.log(paids)
             }).catch((err) => {
                 console.error(`Error ${err.status}: ${err.statusText}`);
                 $main.innerHTML = `Error ${err.status}: ${err.statusText}`
