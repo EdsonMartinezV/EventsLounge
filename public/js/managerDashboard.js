@@ -7,12 +7,14 @@
             $mainTable = document.getElementById('mainTable'),
             $mainTableHeadRow = document.getElementById('mainTableHeadRow'),
             $mainTableBody = document.getElementById('mainTableBody'),
+            $tableTitle = document.getElementById('tableTitle'),
             $fragment = document.createDocumentFragment();
     
     $usersButton.addEventListener('click', () => {
         fetch('/manager/users')
             .then((res) => res.ok ? res.json() : Promise.reject(res))
             .then((users) => {
+                $tableTitle.innerText = 'Usuarios';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
 
@@ -56,6 +58,11 @@
                     $tr.appendChild($tdRole)
                     $mainTableBody.appendChild($tr)
                 })
+                const $createUserLink = document.createElement('a')
+                $createUserLink.textContent = 'Crear usuario'
+                $createUserLink.href = '/manager/users/create'
+                $main.appendChild($createUserLink)
+
             }).catch((err) => {
                 console.error(`Error ${err.status}: ${err.statusText}`);
                 $main.innerHTML = `Error ${err.status}: ${err.statusText}`
@@ -66,6 +73,7 @@
         fetch('/manager/packs')
             .then((res) => res.ok ? res.json() : Promise.reject(res))
             .then((packs) => {
+                $tableTitle.innerText = 'Paquetes';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
 
@@ -108,6 +116,7 @@
         fetch('/manager/events')
             .then((res) => res.ok ? res.json() : Promise.reject(res))
             .then((events) => {
+                $tableTitle.innerText = 'Eventos';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
 
@@ -162,6 +171,7 @@
         fetch('/manager/paids')
             .then((res) => res.ok ? res.json() : Promise.reject(res))
             .then((paids) => {
+                $tableTitle.innerText = 'Abonos';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
 

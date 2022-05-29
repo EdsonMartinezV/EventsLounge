@@ -31,7 +31,7 @@
 	    </div>
     </div>
     <main id="main">
-		<h2>Usuarios</h2>{{-- @Josdav --}}
+		<h2 id="tableTitle"></h2>{{-- @Josdav --}}
         <table class="table" id="mainTable">
             <thead>
                 <tr id="mainTableHeadRow">
@@ -41,7 +41,7 @@
 			<tbody id="mainTableBody">
 			
 			</tbody>
-        </table>
+        </table><br>
     </main>
     <script src="{{ asset('js/managerDashboard.js') }}"></script>
 </body>

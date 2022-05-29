@@ -71,7 +71,12 @@ Route::get('/manager', function () {
     return view('managerDashboard');
 });
 
+/* ---- Users CRUD ---- */
 Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
+
+Route::get('/manager/users/create', [UserController::class, 'create'])->name('manager.users.create');
+
+Route::post('/manager/users/store', [UserController::class, 'store'])->name('manager.users.store');
 
 Route::get('/manager/packs', [PackController::class, 'index'])->name('manager.packs');
 
