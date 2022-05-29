@@ -79,9 +79,13 @@ Route::post('/manager/users/store', [UserController::class, 'store'])->name('man
 
 Route::get('/manager/users/resetPassword/{userId}', [UserController::class, 'resetPassword'])->name('manager.users.resetPassword');
 
-Route::get('/manager/users/storePassword/{userId}', [UserController::class, 'storePassword'])->name('manager.users.storePassword');
+Route::post('/manager/users/storePassword/{userId}', [UserController::class, 'storePassword'])->name('manager.users.storePassword');
 
 Route::get('/manager/packs', [PackController::class, 'index'])->name('manager.packs');
+
+Route::get('/manager/packs/create', [PackController::class, 'create'])->name('manager.packs.create');
+
+Route::post('/manager/packs/store', [PackController::class, 'store'])->name('manager.packs.store');
 
 Route::get('/manager/events', [EventController::class, 'index'])->name('manager.events');
 

@@ -19,6 +19,7 @@ class PackFactory extends Factory
         return [
             'name' => $this->faker->word,
             'price' => $this->faker->randomFloat(2, 0, 10000),
+            'is_active' => $this->faker->boolean(50),
         ];
     }
 }

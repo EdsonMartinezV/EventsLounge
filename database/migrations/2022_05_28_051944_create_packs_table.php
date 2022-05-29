@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->float('price',8,2);
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }
