@@ -7,7 +7,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/estil.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Paquetes</title>
 </head>
 <body>
 @include ('header')

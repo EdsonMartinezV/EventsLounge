@@ -9,7 +9,7 @@
                		 <a  href="{{ url('/logout') }}">Cerrar Sesión</a>
 						<li><a href="/dashboard">Inicio</a></li>
 						<li><a href="/packages">Paquetes</a></li>
-						<li><a href="/bookings">Mis Reservaciones</a></li>
+						<li><a href="/mybookings">Mis Eventos</a></li>
 				@else
 					<li><a href="/register">Registrarse</a></li>
 					<li><a href="/login">Iniciar Sesión</a></li>

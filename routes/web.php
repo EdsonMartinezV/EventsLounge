@@ -34,7 +34,7 @@ Route::get('/packages', function () {
     return view('packages');
 });
 
-Route::get('/bookings', function () {
+Route::get('/mybookings', function () {
     return view('bookings');
 });
 Route::get('/booking', function () {

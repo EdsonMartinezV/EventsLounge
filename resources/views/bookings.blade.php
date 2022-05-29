@@ -11,8 +11,8 @@
 <body>
 @include ('header')
 <button class="btn btn-primary btn-lg" id="btn-bookings">Listar</button>
-<center><h1>Mis bookings</h1></center>
-<center><h1>{{Auth::user()->name}}</h1></center>
+<center><h1>Mis Eventos</h1></center>
+<center><h3>{{Auth::user()->name}}</h3></center>
 <div class="card-body">
     <table class="table table-bordered table-striped" id="bookings">
         <thead>
