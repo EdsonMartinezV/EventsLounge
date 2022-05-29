@@ -20,7 +20,9 @@
               <span>Paquete 01</span>
               <h4>Informacion</h4>
               <p>Precio del paquete</p>
+              @if(Auth::check())
               <a class="testbutton" href="/booking">Reservar</a>
+              @endif
             </div>
           </div>
 
@@ -29,7 +31,9 @@
               <span>Paquete 02</span>
               <h4>Información</h4>
               <p>Precio del paquete</p>
+              @if(Auth::check())
               <a class="testbutton" href="/booking">Reservar</a>
+              @endif
             </div>
           </div>
 
@@ -38,7 +42,9 @@
               <span>Paquete 03</span>
               <h4>Información</h4>
               <p>Precio del paquete</p>
+              @if(Auth::check())
               <a class="testbutton" href="/booking">Reservar</a>
+              @endif
             </div>
           </div>
 

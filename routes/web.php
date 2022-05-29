@@ -58,10 +58,12 @@ Route::post('/register-user',[UserController::class, 'registerUser'])->name('use
 Route::get('/employee', function () {
     return view('employeeDashboard');
 });
-Route::get('/employee/bookings', function () {
-    return view('employeeBooking');
+Route::get('/employee/showEvents', function () {
+    return view('showEvents');
 });
-
+Route::get('/employee/showToPay', function () {
+    return view('showToPay');
+});
 
 
 /* ---- Manager Routes ---- */
