@@ -22,11 +22,27 @@
 <div class="container-menu">
 	<div class="cont-menu">
 		<nav>
+			<a id="eventsButton">Listar eventos confirmados</a>
+			<a href="/">2nd Employee Action</a>
+			<a href="/">3rd Employee Action</a>
+			<a href="/">4th Employee Action</a>
+			<a href="/">5th Employee Action</a>
+			<a href="/">6th Employee Action</a>
 			<a id="eventsButton" href="employee/showEvents">1st Employee Action</a>
 			<a id="toPayButton" href="employee/showToPay">2nd Employee Action</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
 </div>
+<main id="main">
+	<table class="table" id="mainTable">
+		<thead>
+			<tr id="mainTableHeadRow">
+				
+			</tr>
+		</thead>
+	</table>
+</main>
+<script src="{{ asset('js/employeeDashboard.js') }}"></script>
 </body>
 </html>

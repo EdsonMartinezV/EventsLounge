@@ -6,6 +6,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\PackController;
 use App\Http\Controllers\PaidController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployeeController;
 
 
 /*
@@ -98,4 +99,6 @@ Route::delete('/delete-bookings',[ClientController::class, 'deleteBookings'])->n
 Route::get('/show-booking/{id}',[ClientController::class, 'showBooking'])->name('one.booking');
 
 Route::put('/update-booking/{id}',[ClientController::class, 'updateBooking'])->name('update.booking');
+
+
 

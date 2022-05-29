@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string("name",150)->nullable();
-
-            $table->foreignId('event_id')->nullable()
-            ->constrained('events')->onUpdate('cascade') ->onDelete('cascade');
+            $table->string("url",150)->nullable();
+            $table->foreignId('event_id')
+                ->nullable()
+                ->constrained('events')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->date('event_date');
             $table->float('price',8,2);
-            $table->string('image',150)->nullable();
             $table->string('is_confirmed')->nullable()->default(0);
             $table->string('is_realized')->nullable()->default(0);
             $table->timestamps();
