@@ -114,7 +114,10 @@
                     $tr.appendChild($tdPrice)
                     $mainTableBody.appendChild($tr)
                 })
-                console.log(packs)
+                const $createPackLink = document.createElement('a')
+                $createPackLink.textContent = 'Crear paquete'
+                $createPackLink.href = '/manager/packs/create'
+                $main.appendChild($createPackLink)
             }).catch((err) => {
                 console.error(`Error ${err.status}: ${err.statusText}`);
                 $main.innerHTML = `Error ${err.status}: ${err.statusText}`

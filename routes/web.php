@@ -71,6 +71,8 @@ Route::get('/manager', function () {
     return view('managerDashboard');
 });
 
+Route::get('/manager/createuser', function () {return view('createUsers');});
+
 Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
 
 Route::get('/manager/users/create', [UserController::class, 'create'])->name('manager.users.create');
@@ -79,9 +81,13 @@ Route::post('/manager/users/store', [UserController::class, 'store'])->name('man
 
 Route::get('/manager/users/resetPassword/{userId}', [UserController::class, 'resetPassword'])->name('manager.users.resetPassword');
 
-Route::get('/manager/users/storePassword/{userId}', [UserController::class, 'storePassword'])->name('manager.users.storePassword');
+Route::post('/manager/users/storePassword/{userId}', [UserController::class, 'storePassword'])->name('manager.users.storePassword');
 
 Route::get('/manager/packs', [PackController::class, 'index'])->name('manager.packs');
+
+Route::get('/manager/packs/create', [PackController::class, 'create'])->name('manager.packs.create');
+
+Route::post('/manager/packs/store', [PackController::class, 'store'])->name('manager.packs.store');
 
 Route::get('/manager/events', [EventController::class, 'index'])->name('manager.events');
 
