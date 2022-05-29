@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\PackController;
+use App\Http\Controllers\PaidController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -54,11 +57,22 @@ Route::post('/register-user',[UserController::class, 'registerUser'])->name('use
 Route::get('/employee', function () {
     return view('employeeDashboard');
 });
+Route::get('/employee/bookings', function () {
+    return view('employeeBooking');
+});
 
 /* ---- Manager Routes ---- */
 Route::get('/manager', function () {
     return view('managerDashboard');
 });
+
+Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
+
+Route::get('/manager/packs', [PackController::class, 'index'])->name('manager.packs');
+
+Route::get('/manager/events', [EventController::class, 'index'])->name('manager.events');
+
+Route::get('/manager/paids', [PaidController::class, 'index'])->name('manager.paids');
 
 /* ---- Rutas cliente ---- */
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
