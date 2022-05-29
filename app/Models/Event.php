@@ -12,7 +12,8 @@ class Event extends Model
         'event_date',
         'price',
         'image',
-        'is_confirmed'
+        'is_confirmed',
+        'realized'
     ];
 
     public function user(){
@@ -21,6 +22,10 @@ class Event extends Model
 
     public function packs(){
         return $this->belongsToMany(Pack::class);
+    }
+
+    public function images(){
+        return $this->hasMany(Image::class, 'event_id','id');
     }
 
 }

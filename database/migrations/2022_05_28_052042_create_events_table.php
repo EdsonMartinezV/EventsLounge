@@ -19,6 +19,7 @@ return new class extends Migration
             $table->float('price',8,2);
             $table->string('image',150)->nullable();
             $table->string('is_confirmed')->nullable()->default(0);
+            $table->string('is_realized')->nullable()->default(0);
             $table->timestamps();
             $table->foreignId('user_id')
                 ->nullable()
