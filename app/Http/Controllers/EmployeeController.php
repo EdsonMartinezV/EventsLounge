@@ -16,4 +16,11 @@ class EmployeeController extends Controller
        
         return $bookings->toJson();
     }
+
+    public function eventsRealized(){
+        
+        $bookings= Event::where([['is_confirmed','=',1],['is_realized','=',1]])->get();
+       
+        return $bookings->toJson();
+    }
 }
