@@ -18,7 +18,14 @@
     })
 
     $packsButton.addEventListener('click', () => {
-        console.log('packs');
+        fetch('/manager/packs')
+            .then((res) => res.ok ? res.json() : Promise.reject(res))
+            .then((packs) => {
+                console.log(packs);
+            }).catch((err) => {
+                console.error(`Error ${err.status}: ${err.statusText}`);
+                $main.innerHTML = `Error ${err.status}: ${err.statusText}`
+            })
     })
 
     $eventsButton.addEventListener('click', () => {
