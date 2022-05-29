@@ -25,15 +25,15 @@
 <div class="container-menu">
 	<div class="cont-menu">
 		<nav>
-			<a href="/">1st Manager Action</a>
-			<a href="/">2nd Manager Action</a>
-			<a href="/">3rd Manager Action</a>
-			<a href="/">4th Manager Action</a>
-			<a href="/">5th Manager Action</a>
-			<a href="/">6th Manager Action</a>
+			<a id="usersButton">Ver Usuarios</a>
+			<a id="packsButton">Ver Paquetes</a>
+			<a id="eventsButton">Ver Eventos</a>
+			<a id="paidsButton">Ver abonos</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
 </div>
+<main id="main"></main>
+<script src="{{ asset('js/managerDashboard.js') }}"></script>
 </body>
 </html>
