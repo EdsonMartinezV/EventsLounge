@@ -12,6 +12,6 @@
 <body>
 @include ('header')
 </br>
-    <center><h1>Editar eventos</h1></center>
+    <center><h1>Crear usuarios</h1></center>
 </body>
 </html>
