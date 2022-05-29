@@ -31,7 +31,7 @@
 	    </div>
     </div>
     <main id="main">
-        <table class="table table-bordered table-striped" id="mainTable">
+        <table class="table" id="mainTable">
             <thead>
                 <tr id="mainTableHeadRow">
 					<th>#</th><th>#</th><th>#</th>
