@@ -30,19 +30,13 @@
 	    </div>
     </div>
     <main id="main">
-        <table class="table table-bordered table-striped" id="bookings">
+        <table class="table table-bordered table-striped" id="mainTable">
             <thead>
-                <tr>
-                    <th>id evento</th>
-                    <th>Fecha evento</th>
-                    <th>precio</th>
-                    <th>Usuario</th>
-                    <th>Confirmado</th>
-                    <th>Actualizar</th>
-                    <th>Eliminar</th>
+                <tr id="mainTableHeadRow">
+
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="mainTableBody">
             
             </tbody>
         </table>
