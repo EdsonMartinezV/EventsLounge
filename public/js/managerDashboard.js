@@ -7,6 +7,14 @@
             $fragment = document.createDocumentFragment();
     
         $usersButton.addEventListener('click', () => {
+            fetch('/manager/users')
+                .then((res) => res.ok ? res.json() : Promise.reject(res))
+                .then((users) => {
+                    console.log(users);
+                }).catch((err) => {
+                    console.error(`Error ${err.status}: ${err.statusText}`);
+                    $main.innerHTML = `Error ${err.status}: ${err.statusText}`
+                })
             console.log('users');
         })
 
