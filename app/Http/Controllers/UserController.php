@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -60,6 +60,32 @@ class UserController extends Controller
         $users = User::all();
         $users->toJson();
         return $users;
+    }
+
+    public function create(){
+        return view('register');
+    }
+
+    public function store(Request $request){
+        $user = new User();
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->email = $request->email;
+        $user->password= Hash::make($request->password);
+        $user->role= $request->role;
+        $user->save();
+        return redirect('/manager');
+    }
+
+    public function resetPassword($userId){
+        return view('resetPassword', compact('userId'));
+    }
+
+    public function storePassword(Request $request, $userId){
+        $user = User::find($userId);
+        $user->password = Hash::make($request->pasword);
+        $user->save();
+        return redirect('/manager');
     }
 }
 
