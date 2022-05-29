@@ -22,10 +22,10 @@
     <div class="container-menu">
 	    <div class="cont-menu">
 		    <nav>
-		    	<a id="usersButton" href="/manager/showUser">Ver Usuarios</a>
-		    	<a id="packsButton" href="/manager/showPackages">Ver Paquetes</a>
-		    	<a id="eventsButton" href="/manager/showEvents">Ver Eventos</a>
-		    	<a id="paidsButton" href="/manager/showToPay">Ver abonos</a>
+		    	<a id="usersButton">Ver Usuarios</a>
+		    	<a id="packsButton">Ver Paquetes</a>
+		    	<a id="eventsButton">Ver Eventos</a>
+		    	<a id="paidsButton">Ver abonos</a>
 		    </nav>
 		    <label for="btn-menu">✖️</label>
 	    </div>
@@ -34,21 +34,12 @@
         <table class="table" id="mainTable">
             <thead>
                 <tr id="mainTableHeadRow">
-					<th>#</th><th>#</th><th>#</th>
+
                 </tr>
             </thead>
-
-			<tr>
-				<td>#</td><td>#</td><td>#</td>
-			</tr>
-
-			<tr>
-				<td>#</td><td>#</td><td>#</td>
-			</tr>
-
-			<tr>
-				<td>#</td><td>#</td><td>#</td>
-			</tr>
+			<tbody id="mainTableBody">
+			
+			</tbody>
         </table>
     </main>
     <script src="{{ asset('js/managerDashboard.js') }}"></script>
