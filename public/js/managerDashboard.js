@@ -40,6 +40,13 @@
     })
 
     $paidsButton.addEventListener('click', () => {
-        console.log('paids');
+        fetch('/manager/paids')
+            .then((res) => res.ok ? res.json() : Promise.reject(res))
+            .then((paids) => {
+                console.log(paids);
+            }).catch((err) => {
+                console.error(`Error ${err.status}: ${err.statusText}`);
+                $main.innerHTML = `Error ${err.status}: ${err.statusText}`
+            })
     })
 })()
