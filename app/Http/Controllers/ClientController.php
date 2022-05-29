@@ -18,4 +18,13 @@ class ClientController extends Controller
     
        return $bookings->toJson();
     }
+
+    public function deleteBookings(Request $request){
+
+     
+        Event::where('id',$request->id_event)->delete();
+        $bookings = Event::where('user_id',Auth::user()->id)->get();
+       
+        return $bookings->toJson();
+    }
 }

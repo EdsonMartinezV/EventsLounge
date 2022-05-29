@@ -66,4 +66,5 @@ Route::get('/manager', function () {
 /* ---- Rutas cliente ---- */
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
 
+Route::delete('/delete-bookings',[ClientController::class, 'deleteBookings'])->name('delete.bookings');
 
