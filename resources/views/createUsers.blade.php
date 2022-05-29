@@ -11,6 +11,7 @@
 </head>
 <body>
 @include ('header')
+@include ('managerHeader')
 <body background="/images/eventos.jpeg">
 </br>
     <div class="wrapper wrapper--w960">
