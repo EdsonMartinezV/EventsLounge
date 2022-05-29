@@ -61,6 +61,8 @@ Route::get('/employee/bookings', function () {
     return view('employeeBooking');
 });
 
+
+
 /* ---- Manager Routes ---- */
 Route::get('/manager', function () {
     return view('managerDashboard');
