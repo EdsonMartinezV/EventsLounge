@@ -22,12 +22,8 @@
 <div class="container-menu">
 	<div class="cont-menu">
 		<nav>
-			<a href="/employee/bookings">1st Employee Action</a>
-			<a href="/">2nd Employee Action</a>
-			<a href="/">3rd Employee Action</a>
-			<a href="/">4th Employee Action</a>
-			<a href="/">5th Employee Action</a>
-			<a href="/">6th Employee Action</a>
+			<a id="eventsButton" href="employee/showEvents">1st Employee Action</a>
+			<a id="toPayButton" href="employee/showToPay">2nd Employee Action</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
