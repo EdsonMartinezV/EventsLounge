@@ -42,6 +42,7 @@
 			
 			</tbody>
         </table><br>
+		<a id="createLink"></a>
     </main>
     <script src="{{ asset('js/managerDashboard.js') }}"></script>
 </body>
