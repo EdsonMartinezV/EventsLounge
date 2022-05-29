@@ -5,6 +5,7 @@
 	<title>Manager Dshboard</title>
 	<link rel="stylesheet" href="css/dashboardStyles.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/tables.css">
 </head>
 <body>
 @include ('header')
@@ -33,12 +34,21 @@
         <table class="table table-bordered table-striped" id="mainTable">
             <thead>
                 <tr id="mainTableHeadRow">
-
+					<th>#</th><th>#</th><th>#</th>
                 </tr>
             </thead>
-            <tbody id="mainTableBody">
-            
-            </tbody>
+
+			<tr>
+				<td>#</td><td>#</td><td>#</td>
+			</tr>
+
+			<tr>
+				<td>#</td><td>#</td><td>#</td>
+			</tr>
+
+			<tr>
+				<td>#</td><td>#</td><td>#</td>
+			</tr>
         </table>
     </main>
     <script src="{{ asset('js/managerDashboard.js') }}"></script>
