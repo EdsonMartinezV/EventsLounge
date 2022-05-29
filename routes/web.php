@@ -67,6 +67,18 @@ Route::get('/employee/bookings', function () {
 Route::get('/manager', function () {
     return view('managerDashboard');
 });
+Route::get('/manager/showUser', function () {
+    return view('showUser');
+});
+Route::get('/manager/showEvents', function () {
+    return view('showEvents');
+});
+Route::get('/manager/showPackages', function () {
+    return view('showPackages');
+});
+Route::get('/manager/showToPay', function () {
+    return view('showToPay');
+});
 
 Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
 
