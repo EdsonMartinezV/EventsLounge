@@ -65,3 +65,5 @@ Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client
 
 Route::delete('/delete-bookings',[ClientController::class, 'deleteBookings'])->name('delete.bookings');
 
+Route::get('/show-booking/{id}',[ClientController::class, 'showBooking'])->name('one.booking');
+
