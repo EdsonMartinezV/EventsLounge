@@ -3,10 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Manager Dshboard</title>
+	<link rel="stylesheet" href="css/dashboardStyles.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<header class="header">
+@include ('header')
 		<div class="container">
 		    <div class="btn-menu">
 			    <label for="btn-menu">☰</label>
@@ -14,11 +15,7 @@
 			<div class="logo">
 				<h1>Manager Dashboard</h1>
 			</div>
-			<nav class="menu">
-				<a href="/">Home</a>
-			</nav>
 		</div>
-	</header>
 	<div class="capa"></div>
     <input type="checkbox" id="btn-menu">
     <div class="container-menu">
