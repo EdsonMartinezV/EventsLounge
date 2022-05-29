@@ -8,6 +8,7 @@
             $mainTableHeadRow = document.getElementById('mainTableHeadRow'),
             $mainTableBody = document.getElementById('mainTableBody'),
             $tableTitle = document.getElementById('tableTitle'),
+            $createLink = document.getElementById('createLink'),
             $fragment = document.createDocumentFragment();
     
     $usersButton.addEventListener('click', () => {
@@ -17,6 +18,7 @@
                 $tableTitle.innerText = 'Usuarios';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
+                $createLink.textContent = '';
 
                 const $tdId = document.createElement('td'),
                     $tdName = document.createElement('td',),
@@ -67,11 +69,9 @@
                     $tr.appendChild($tdResetPassword)
                     $mainTableBody.appendChild($tr)
                 })
-                const $createUserLink = document.createElement('a')
-                $createUserLink.textContent = 'Crear usuario'
-                $createUserLink.href = '/manager/users/create'
-                $main.appendChild($createUserLink)
-
+                $createLink.textContent = 'Crear usuario'
+                $createLink.setAttribute('href', '/manager/users/create')
+                $main.appendChild($createLink)
             }).catch((err) => {
                 console.error(`Error ${err.status}: ${err.statusText}`);
                 $main.innerHTML = `Error ${err.status}: ${err.statusText}`
@@ -85,6 +85,7 @@
                 $tableTitle.innerText = 'Paquetes';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
+                $createLink.textContent = '';
 
                 const $tdId = document.createElement('td'),
                     $tdName = document.createElement('td',),
@@ -114,10 +115,9 @@
                     $tr.appendChild($tdPrice)
                     $mainTableBody.appendChild($tr)
                 })
-                const $createPackLink = document.createElement('a')
-                $createPackLink.textContent = 'Crear paquete'
-                $createPackLink.href = '/manager/packs/create'
-                $main.appendChild($createPackLink)
+                $createLink.textContent = 'Crear paquete'
+                $createLink.setAttribute('href', '/manager/packs/create')
+                $main.appendChild($createLink)
             }).catch((err) => {
                 console.error(`Error ${err.status}: ${err.statusText}`);
                 $main.innerHTML = `Error ${err.status}: ${err.statusText}`
