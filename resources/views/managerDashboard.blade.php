@@ -22,10 +22,10 @@
     <div class="container-menu">
 	    <div class="cont-menu">
 		    <nav>
-		    	<a id="usersButton" href="manager/showUser">Ver Usuarios</a>
-		    	<a id="packsButton" href="manager/showPackages">Ver Paquetes</a>
-		    	<a id="eventsButton" href="manager/showEvents">Ver Eventos</a>
-		    	<a id="paidsButton" href="manager/showToPay">Ver abonos</a>
+		    	<a id="usersButton" href="/manager/showUser">Ver Usuarios</a>
+		    	<a id="packsButton" href="/manager/showPackages">Ver Paquetes</a>
+		    	<a id="eventsButton" href="/manager/showEvents">Ver Eventos</a>
+		    	<a id="paidsButton" href="/manager/showToPay">Ver abonos</a>
 		    </nav>
 		    <label for="btn-menu">✖️</label>
 	    </div>

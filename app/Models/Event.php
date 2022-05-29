@@ -11,9 +11,8 @@ class Event extends Model
     protected $fillable = [
         'event_date',
         'price',
-        'image',
         'is_confirmed',
-        'realized'
+        'is_realized'
     ];
 
     public function user(){

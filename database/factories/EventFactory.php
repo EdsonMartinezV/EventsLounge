@@ -17,8 +17,10 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'event_date' => $this->faker->date('Y-m-d', 'now'),
+            'event_date' => $this->faker->date('Y-m-d'),
             'price' => $this->faker->randomFloat(2, 0, 10000),
+            'is_confirmed' => $this->faker->boolean(50),
+            'is_realized' => $this->faker->boolean(50),
             'user_id' => $this->faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
         ];
     }
