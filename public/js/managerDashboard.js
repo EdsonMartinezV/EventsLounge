@@ -22,19 +22,22 @@
                     $tdName = document.createElement('td',),
                     $tdSurName = document.createElement('td'),
                     $tdEmail = document.createElement('td'),
-                    $tdRole = document.createElement('td')
+                    $tdRole = document.createElement('td'),
+                    $tdResetPassword = document.createElement('td')
 
                 $tdId.textContent = 'ID'
                 $tdName.textContent = 'Nombre'
                 $tdSurName.textContent = 'Apellidos'
                 $tdEmail.textContent = 'Email'
                 $tdRole.textContent = 'Rol'
+                $tdResetPassword.textContent = 'Reestablecer contraseña'
 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdName)
                 $fragment.appendChild($tdSurName)
                 $fragment.appendChild($tdEmail)
                 $fragment.appendChild($tdRole)
+                $fragment.appendChild($tdResetPassword)
                 $mainTableHeadRow.appendChild($fragment)
 
                 users.forEach((user) => {
@@ -43,19 +46,25 @@
                         $tdName = document.createElement('td'),
                         $tdSurName = document.createElement('td'),
                         $tdEmail = document.createElement('td'),
-                        $tdRole = document.createElement('td')
+                        $tdRole = document.createElement('td'),
+                        $tdResetPassword = document.createElement('td'),
+                        $aResetPassword = document.createElement('a')
 
                     $tdId.textContent = user.id
                     $tdName.textContent = user.name
                     $tdSurName.textContent = user.surname
                     $tdEmail.textContent = user.email
                     $tdRole.textContent = user.role
+                    $aResetPassword.textContent = 'Reestablecer contraseña'
+                    $aResetPassword.href = `/manager/users/resetPassword/${user.id}`
 
                     $tr.appendChild($tdId)
                     $tr.appendChild($tdName)
                     $tr.appendChild($tdSurName)
                     $tr.appendChild($tdEmail)
                     $tr.appendChild($tdRole)
+                    $tdResetPassword.appendChild($aResetPassword)
+                    $tr.appendChild($tdResetPassword)
                     $mainTableBody.appendChild($tr)
                 })
                 const $createUserLink = document.createElement('a')
