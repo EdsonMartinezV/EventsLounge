@@ -18,7 +18,7 @@ class PaidFactory extends Factory
     {
         return [
             'amount' => $this->faker->randomFloat(2, 500, 10000),
-            'event_id' => $this->faker->numberBetween(11, 35),
+            'event_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }
