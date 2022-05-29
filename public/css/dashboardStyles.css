@@ -13,6 +13,14 @@
 					  z-index: -1;
 					  top: 0;left: 0;
 				  }
+				  .capa2{
+					width: 100%;
+					height: 50px;
+					background: #ffff;
+					z-index: -1;
+					top: 0;left: 0;
+				}
+
 				  /*Header Styles*/
 				  .header{
 					  width: 100%;
@@ -27,7 +35,7 @@
 				  }
 				  .container .btn-menu, .logo{
 					  float: left;
-					  line-height:100px;
+					  line-height:50px;
 				  }
 				  .container .btn-menu label{
 					  color: #49b05e;
