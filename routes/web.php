@@ -30,9 +30,6 @@ Route::get('/packs', function () {
     return view('packs');
 });
 
-Route::get('/packages', function () {
-    return view('packages');
-});
 
 Route::get('/mybookings', function () {
     return view('bookings');

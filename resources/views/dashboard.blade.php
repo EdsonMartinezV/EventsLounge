@@ -20,7 +20,7 @@
                      <span>Bienvenido {{Auth::user()->name}}</span>
                       <h1>Salón de Eventos</h1>
                       <p>Conoce nuestro catálogo para conocer los paquetes y reserva la fecha para tus eventos importantes. </p>
-                      <a href="/packages">Ver paquetes</a>
+                      <a href="/packs">Ver paquetes</a>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
