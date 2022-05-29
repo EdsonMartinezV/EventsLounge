@@ -71,6 +71,8 @@ Route::get('/manager', function () {
     return view('managerDashboard');
 });
 
+Route::get('/manager/createuser', function () {return view('createUsers');});
+
 Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
 
 Route::get('/manager/packs', [PackController::class, 'index'])->name('manager.packs');
