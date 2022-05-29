@@ -21,28 +21,24 @@
                 <th>Fecha evento</th>
                 <th>precio</th>
                 <th>Usuario</th>
+                <th>Confirmado</th>
                 <th>Actualizar</th>
                 <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
-            {{-- <tr>
-                <td>2</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td><button type="button" value="">Actualizar</button></td>
-                <td><button type="button" value="">Eliminar</button></td> 
-            </tr> --}}
+           
         </tbody>
     </table>
 </div>
 <div id="results"></div>
 
 <script>
-    document.getElementById('btn-bookings').addEventListener('click',function(e) {
+    document.getElementById('btn-bookings').addEventListener('click',function tolist(e) {
         e.preventDefault();
+        //se limpia lo que trae la tabla
+        var Table = document.getElementById("bookings");
+            Table.innerHTML = "";
        const $fragment = document.createDocumentFragment()
 
         fetch("/my-bookings")
@@ -54,14 +50,6 @@
             }
         })
         .then(function(data){
- /*           // document.getElementById('results').innerText=text
-            var x = document.getElementById("bookings").rows[0].cells;
-            text = JSON.stringify(text)
-            document.getElementById('results').innerText=text
-            //console.log(text) */
-
-            console.log(data)
-
             const $bookings = document.getElementById('bookings')
 
             data.forEach((event) => {
@@ -73,43 +61,99 @@
                 const $td4 = document.createElement('td')
                 const $td5 = document.createElement('td')
                 const $td6 = document.createElement('td')
+                const $td7 = document.createElement('td')
 
                 const $buttonUpdate = document.createElement('button')
                 const $buttonDelete = document.createElement('button')
+               
 
                 $buttonUpdate.textContent = "Actualizar"
                 $buttonDelete.textContent = "Eliminar"
 
                 $td1.textContent = event.id
+                $td1.id = 'id_event'
                 $td2.textContent = event.event_date
                 $td3.textContent = event.price
                 $td4.textContent = event.user_id
-                $td5.appendChild($buttonUpdate)
-                $td6.appendChild($buttonDelete)
-           
-
+                if(event.is_confirmed == '0'){
+                    $td7.textContent = 'No'
+                }
+                else{
+                    $td7.textContent = 'Si' 
+                }
                 $tr.appendChild($td1)
                 $tr.appendChild($td2)
                 $tr.appendChild($td3)
-                $tr.appendChild($td4)
-                $tr.appendChild($td5)
-                $tr.appendChild($td6)
-
-
-                $fragment.appendChild($tr)
-                $bookings.appendChild($fragment)
                 
+                $tr.appendChild($td4)
+                $tr.appendChild($td7)
+               
+               
 
-            })
+                if(event.is_confirmed == '0'){
+                    $td5.appendChild($buttonUpdate)
+                    $tr.appendChild($td5)
+                    $td6.appendChild($buttonDelete)
+                    $buttonDelete.id = 'btn-delete';
+                    $buttonDelete.setAttribute("value", event.id);
+                    $tr.appendChild($td6)
+                }
+                else{
+                    $td5.textContent = 'confirmado'
+                    $tr.appendChild($td5)
+                    $td6.textContent = 'confirmado'
+                    $tr.appendChild($td6)
+                }
+                
+                $fragment.appendChild($tr)
+                
+                $bookings.appendChild($fragment)
+              
+                  //Accion del boton eliminar
         
-             
+                var datadelete = {
+                    id_event: event.id
+                }
+            
           
-
+            $buttonDelete.addEventListener('click',function(e) {
+                
+                fetch("/delete-bookings", {
+                body: JSON.stringify(datadelete),
+                method: "DELETE",
+                headers:{
+                    'X-CSRF-TOKEN': '{{ csrf_token()}}',
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+        })
+        .then(function(response){
+            if(response.ok){
+                return response.text()
+            }else{
+                throw "Error en la llamada AJAX";
+            }
+        })
+        .then(function(text){
+            //se limpia lo que trae la tabla
+            var Table = document.getElementById("bookings");
+            Table.innerHTML = "";
+            //recarga los datos de la tabla
+            tolist(e);
+        })
+        .catch(function(err){
+            console.log(err);
+        });
+        });
+        //cierra primer listener
+            })
+          
         })
         .catch(function(err){
             console.log(err);
         });
 });
+    
+        
     </script>
 </body>
 
