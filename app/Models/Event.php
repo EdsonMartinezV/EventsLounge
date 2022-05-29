@@ -27,4 +27,7 @@ class Event extends Model
         return $this->hasMany(Image::class, 'event_id','id');
     }
 
+    public function paids(){
+        return $this->hasMany(Paid::class);
+    }
 }
