@@ -27,4 +27,11 @@ class ClientController extends Controller
        
         return $bookings->toJson();
     }
+
+    public function showBooking($id){
+        
+        $bookings = Event::where('id',$id)->get();
+       
+        return $bookings->toJson();
+    }
 }

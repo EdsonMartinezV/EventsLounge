@@ -116,7 +116,7 @@
                 }
             
           
-            $buttonDelete.addEventListener('click',function(e) {
+        $buttonDelete.addEventListener('click',function(e) {
                 
                 fetch("/delete-bookings", {
                 body: JSON.stringify(datadelete),
@@ -145,13 +145,87 @@
         });
         });
         //cierra primer listener
-            })
-          
+        
+        var dataupdate = {
+                    id_event: event.id
+                }
+
+//Listener actualizar
+        $buttonUpdate.addEventListener('click',function showUpdate(e) {
+            var Table = document.getElementById("bookings");
+            Table.innerHTML = "";
+                fetch("/show-booking/"+event.id, {
         })
+        .then(function(response){
+            if(response.ok){
+                return response.json();
+            }else{
+                throw "Error en la llamada AJAX";
+            }
+        })
+        .then(function(eventu){
+            const $bookings = document.getElementById('bookings')
+            const $fragmentu = document.createDocumentFragment()
+           
+            eventu.forEach((item) => {
+                const $tru = document.createElement('tr')
+                const $tdu1 = document.createElement('td')
+                const $tdu2 = document.createElement('td')
+                const $tdu3 = document.createElement('td')
+                const $in1 = document.createElement('input')
+                const $in2 = document.createElement('input')
+                const $buttonUpdateU = document.createElement('button')
+          
+                $buttonUpdateU.textContent = "Actualizar"
+                $buttonUpdateU.id ='btnUpdate';
+                $in1.setAttribute('value',item.event_date)
+                $in1.id = 'date'
+                $in2.setAttribute('value',item.price)
+                $in2.id = 'price'
+                $tdu1.appendChild($in1)
+                $tdu2.appendChild($in2)
+                $tdu3.appendChild($buttonUpdateU)
+
+                $tru.appendChild($tdu1)
+                $tru.appendChild($tdu2)
+                $tru.appendChild($tdu3)
+
+                $fragmentu.appendChild($tru)
+                
+                $bookings.appendChild($fragmentu)
+                
+            })
+            console.log(document.getElementById('btnUpdate'))
+            //Actualizar evento
+            document.getElementById('btnUpdate').addEventListener('click',function Update(e) {
+            
+            fetch("", {
+            })
+            .then(function(response){
+                if(response.ok){
+                    return response.json();
+                }else{
+                    throw "Error en la llamada AJAX";
+                }
+            })
+            .then(function(eventu){
+
+                })
+
+            });
+
+      
+            });
+            //cierra segundo listener
+        })
+    })
+ 
+    })
         .catch(function(err){
             console.log(err);
         });
 });
+    
     
         
     </script>
