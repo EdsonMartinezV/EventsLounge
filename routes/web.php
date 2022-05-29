@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PackController;
+use App\Http\Controllers\PaidController;
 use App\Http\Controllers\UserController;
 
 
@@ -68,7 +69,7 @@ Route::get('/manager/packs', [PackController::class, 'index'])->name('manager.pa
 
 Route::get('/manager/events', [EventController::class, 'index'])->name('manager.events');
 
-Route::get('/manager/paids', [EventController::class, 'showPaids'])->name('manager.paids');
+Route::get('/manager/paids', [PaidController::class, 'index'])->name('manager.paids');
 
 /* ---- Rutas cliente ---- */
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
