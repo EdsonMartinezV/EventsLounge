@@ -144,7 +144,8 @@
                     $tdPrice = document.createElement('td'),
                     $tdIsConfirmed = document.createElement('td'),
                     $tdIsRealized = document.createElement('td'),
-                    $tdUser = document.createElement('td')
+                    $tdUser = document.createElement('td'),
+                    $tdEdit = document.createElement('td')
 
                 $tdId.textContent = 'ID'
                 $tdEventDate.textContent = 'Fecha del evento'
@@ -152,6 +153,7 @@
                 $tdIsConfirmed.textContent = 'Confirmado'
                 $tdIsRealized.textContent = 'Realizado'
                 $tdUser.textContent = 'Usuario'
+                $tdEdit.textContent = 'Editar'
 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdEventDate)
@@ -159,6 +161,7 @@
                 $fragment.appendChild($tdIsConfirmed)
                 $fragment.appendChild($tdIsRealized)
                 $fragment.appendChild($tdUser)
+                $fragment.appendChild($tdEdit)
                 $mainTableHeadRow.appendChild($fragment)
 
                 events.forEach((event) => {
@@ -168,7 +171,9 @@
                         $tdPrice = document.createElement('td'),
                         $tdIsConfirmed = document.createElement('td'),
                         $tdIsRealized = document.createElement('td'),
-                        $tdUser = document.createElement('td')
+                        $tdUser = document.createElement('td'),
+                        $tdEdit = document.createElement('td'),
+                        $aEdit = document.createElement('a')
 
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
@@ -176,6 +181,8 @@
                     $tdIsConfirmed.textContent = event.is_confirmed == 1 ? 'Si' : 'No'
                     $tdIsRealized.textContent = event.is_realized == 1 ? 'Si' : 'No'
                     $tdUser.textContent = event.user_id
+                    $aEdit.textContent = 'Editar'
+                    $aEdit.setAttribute('href', `/manager/events/edit/${event.id}`)
 
                     $tr.appendChild($tdId)
                     $tr.appendChild($tdEventDate)
@@ -183,6 +190,8 @@
                     $tr.appendChild($tdIsConfirmed)
                     $tr.appendChild($tdIsRealized)
                     $tr.appendChild($tdUser)
+                    $tdEdit.appendChild($aEdit)
+                    $tr.appendChild($tdEdit)
                     $mainTableBody.appendChild($tr)
                 })
                 console.log(events);
