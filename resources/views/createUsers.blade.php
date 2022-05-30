@@ -44,7 +44,7 @@
                                     <select class="form-control" name="role" id="exampleFormControlSelect1">
                                     <option value="supervisor">Cliente</option>
                                     <option value="manager">Empleado</option>
-                                    <option value="client">Encargado</option>
+                                    <option value="client">Gerente</option>
                                   </select>
                                 </div>
                             </div>
