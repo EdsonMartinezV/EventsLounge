@@ -120,3 +120,5 @@ Route::put('/update-booking/{id}',[ClientController::class, 'updateBooking'])->n
 
 //rutas empleado
 Route::get('/events-realized',[EmployeeController::class, 'eventsRealized'])->name('employee.realized');
+
+Route::post('/events-images/{id}',[EmployeeController::class, 'eventsImages'])->name('employee.Images');

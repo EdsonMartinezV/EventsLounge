@@ -51,13 +51,13 @@
                     @endif</td></td>
                 <td> {{$booking->user_id}}</td>
                 <td> 
-                    <form action=""  method="post" enctype="multipart/form-data">
+                    <form action="events-images/{{$booking->id}}"  method="post" enctype="multipart/form-data">
                         <fieldset>
                             @csrf
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Agregue su imagen</label>
-                                    <input type="file" class="form-control-file" id="imagen[]" name="imagen[]" multiple
+                                    <input type="file" class="form-control-file" id="imagen[]" name="images[]" multiple
                                     accept="image/*" required>
                                   </div>
                             </div>
