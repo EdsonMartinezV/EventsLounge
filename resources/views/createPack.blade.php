@@ -39,6 +39,3 @@
             </div>
 </body>
 </html>
-<div class="p-t-30">
-                          
-                        </div>
