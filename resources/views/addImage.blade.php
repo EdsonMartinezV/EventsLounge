@@ -75,6 +75,7 @@
            
 		</tbody>
 	</table>
+    <a href="/employee" class="btn btn-success">Regresar al principal</a>
 </main>
 
 <script src="{{ asset('js/employeeDashboard.js') }}"></script>

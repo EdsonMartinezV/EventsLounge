@@ -81,15 +81,15 @@ document.getElementById('eventsButton').addEventListener('click',function tolist
 
 
 
-document.getElementById('eventsPaid').addEventListener('click',function tolist(e) {
-    e.preventDefault();
+document.getElementById('eventsPaid').addEventListener('click',function paids(e) {
+    
     //se limpia lo que trae la tabla
     $mainTableHeadRow = document.getElementById('mainTableHeadRow'),
     $mainTableBody = document.getElementById('mainTableBody'),
     $fragment = document.createDocumentFragment();
 
 
-    fetch("/api/events-realized")
+    fetch("/api/events-paids")
     .then(function(response){
         if(response.ok){
            return response.json();
@@ -116,9 +116,9 @@ document.getElementById('eventsPaid').addEventListener('click',function tolist(e
                 $tdPrice.textContent = 'Precio'
                 $tdIsConfirmed.textContent = 'Confirmado'
                 $tdIsRealized.textContent = 'Realizado'
-                $tdImage.textContent = 'Imagen'
+                $tdImage.textContent = 'Abono'
                 $tdUser.textContent = 'Usuario'
-                $tdUpdate.textContent = 'Actualizar'
+                $tdUpdate.textContent = 'Añadir'
 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdEventDate)
@@ -127,7 +127,7 @@ document.getElementById('eventsPaid').addEventListener('click',function tolist(e
                 $fragment.appendChild($tdIsRealized)
                 $fragment.appendChild($tdUser)
                 $fragment.appendChild($tdImage)
-                $fragment.appendChild($tdUpdate)
+                //$fragment.appendChild($tdUpdate)
                 $mainTableHeadRow.appendChild($fragment)
 
                 data.forEach((event) => {
@@ -138,20 +138,13 @@ document.getElementById('eventsPaid').addEventListener('click',function tolist(e
                         $tdIsConfirmed = document.createElement('td'),
                         $tdIsRealized = document.createElement('td'),
                         $tdUser = document.createElement('td')
-                        $tdform= document.createElement('FORM')
-                        $tdform.enctype =  "multipart/form-data";
-
-                        $tdImageUb = document.createElement('button')
-
-                    $tdImageUb.setAttribute('id','image')
-                    $tdImageU.setAttribute('type','file')
-                    $tdImageUb.setAttribute('class','form-control-file')
-                    $tdImageUb.setAttribute('accept','image/*')
-
-                    $tdform.appendChild($tdImageUb)
-                    $tdform.setAttribute('id','form')
+                        $paid = document.createElement('input')
+                        $send = document.createElement('button')
+                        $send.textContent = 'Enviar'
+                        $paid.setAttribute('type','number')
+                        $paid.setAttribute('id','inputPaid')
                         
-                    $tdUpdateb.textContent = 'Actualizar'
+
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
                     $tdPrice.textContent = event.price
@@ -165,40 +158,36 @@ document.getElementById('eventsPaid').addEventListener('click',function tolist(e
                     $tr.appendChild($tdIsConfirmed)
                     $tr.appendChild($tdIsRealized)
                     $tr.appendChild($tdUser)
-                    $tr.appendChild($tdImageU)
-                    $tr.appendChild($tdUpdateb)
+                    $tr.appendChild($paid)
+                    $tr.appendChild($send)
+                    
+
                     $mainTableBody.appendChild($tr) 
 
-                    var dataimage = {
-                        image: document.getElementById('image').files[0]
-                    }
-                 
-
-                    $tdUpdateb.addEventListener('click',function(e) {
-                       
-                        fetch("/api/events-images/"+event.id, {
-                        body: JSON.stringify(dataimage),
-                        method: "POST",
-                        headers:{
-                            'X-CSRF-TOKEN': '{{ csrf_token()}}',
-                            "Content-type": "application/json; charset=UTF-8"
+                    $send.addEventListener('click',function(e) {
+                        var dataPaid = {
+                            paid: document.getElementById('inputPaid').value,
                         }
+                        console.log(dataPaid)
+                
+                        fetch("/api/add-paid/"+event.id, {
                 })
                 .then(function(response){
                     if(response.ok){
-                        return response.json();
+                        return response.text()
                     }else{
                         throw "Error en la llamada AJAX";
                     }
                 })
                 .then(function(text){
+                   console.log(text)
                     
-                   
                 })
                 .catch(function(err){
                     console.log(err);
                 });
                 });
+
         })
 
         })
