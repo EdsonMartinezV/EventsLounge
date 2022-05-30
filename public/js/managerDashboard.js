@@ -8,6 +8,7 @@
             $mainTableHeadRow = document.getElementById('mainTableHeadRow'),
             $mainTableBody = document.getElementById('mainTableBody'),
             $tableTitle = document.getElementById('tableTitle'),
+            $createLink = document.getElementById('createLink'),
             $fragment = document.createDocumentFragment();
     
     $usersButton.addEventListener('click', () => {
@@ -17,6 +18,7 @@
                 $tableTitle.innerText = 'Usuarios';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
+                $createLink.textContent = '';
 
                 const $tdId = document.createElement('td'),
                     $tdName = document.createElement('td',),
@@ -67,11 +69,9 @@
                     $tr.appendChild($tdResetPassword)
                     $mainTableBody.appendChild($tr)
                 })
-                const $createUserLink = document.createElement('a')
-                $createUserLink.textContent = 'Crear usuario'
-                $createUserLink.href = '/manager/users/create'
-                $main.appendChild($createUserLink)
-
+                $createLink.textContent = 'Crear usuario'
+                $createLink.setAttribute('href', '/manager/users/create')
+                $main.appendChild($createLink)
             }).catch((err) => {
                 console.error(`Error ${err.status}: ${err.statusText}`);
                 $main.innerHTML = `Error ${err.status}: ${err.statusText}`
@@ -85,39 +85,45 @@
                 $tableTitle.innerText = 'Paquetes';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
+                $createLink.textContent = '';
 
                 const $tdId = document.createElement('td'),
                     $tdName = document.createElement('td',),
-                    $tdPrice = document.createElement('td')
+                    $tdPrice = document.createElement('td'),
+                    $tdIsActive = document.createElement('td')
                     
                 $tdId.textContent = 'ID'
                 $tdName.textContent = 'Nombre'
                 $tdPrice.textContent = 'Precio'
+                $tdIsActive.textContent = 'Activo'
                 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdName)
                 $fragment.appendChild($tdPrice)
+                $fragment.appendChild($tdIsActive)
                 $mainTableHeadRow.appendChild($fragment)
 
                 packs.forEach((pack) => {
                     const $tr = document.createElement('tr'),
                         $tdId = document.createElement('td'),
                         $tdName = document.createElement('td'),
-                        $tdPrice = document.createElement('td')
-                        
+                        $tdPrice = document.createElement('td'),
+                        $tdIsActive = document.createElement('td')
+
                     $tdId.textContent = pack.id
                     $tdName.textContent = pack.name
                     $tdPrice.textContent = `$ ${pack.price}`
+                    $tdIsActive.textContent = pack.is_active ? 'Si' : 'No'
 
                     $tr.appendChild($tdId)
                     $tr.appendChild($tdName)
                     $tr.appendChild($tdPrice)
+                    $tr.appendChild($tdIsActive)
                     $mainTableBody.appendChild($tr)
                 })
-                const $createPackLink = document.createElement('a')
-                $createPackLink.textContent = 'Crear paquete'
-                $createPackLink.href = '/manager/packs/create'
-                $main.appendChild($createPackLink)
+                $createLink.textContent = 'Crear paquete'
+                $createLink.setAttribute('href', '/manager/packs/create')
+                $main.appendChild($createLink)
             }).catch((err) => {
                 console.error(`Error ${err.status}: ${err.statusText}`);
                 $main.innerHTML = `Error ${err.status}: ${err.statusText}`
@@ -131,23 +137,27 @@
                 $tableTitle.innerText = 'Eventos';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
+                $createLink.textContent = '';
 
                 const $tdId = document.createElement('td'),
                     $tdEventDate = document.createElement('td',),
                     $tdPrice = document.createElement('td'),
                     $tdIsConfirmed = document.createElement('td'),
+                    $tdIsRealized = document.createElement('td'),
                     $tdUser = document.createElement('td')
 
                 $tdId.textContent = 'ID'
                 $tdEventDate.textContent = 'Fecha del evento'
                 $tdPrice.textContent = 'Precio'
                 $tdIsConfirmed.textContent = 'Confirmado'
+                $tdIsRealized.textContent = 'Realizado'
                 $tdUser.textContent = 'Usuario'
 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdEventDate)
                 $fragment.appendChild($tdPrice)
                 $fragment.appendChild($tdIsConfirmed)
+                $fragment.appendChild($tdIsRealized)
                 $fragment.appendChild($tdUser)
                 $mainTableHeadRow.appendChild($fragment)
 
@@ -157,18 +167,21 @@
                         $tdEventDate = document.createElement('td'),
                         $tdPrice = document.createElement('td'),
                         $tdIsConfirmed = document.createElement('td'),
+                        $tdIsRealized = document.createElement('td'),
                         $tdUser = document.createElement('td')
 
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
                     $tdPrice.textContent = `$ ${event.price}`
-                    event.is_confirmed == 1 ? $tdIsConfirmed.textContent = 'Si' : $tdIsConfirmed.textContent = 'No'
+                    $tdIsConfirmed.textContent = event.is_confirmed == 1 ? 'Si' : 'No'
+                    $tdIsRealized.textContent = event.is_realized == 1 ? 'Si' : 'No'
                     $tdUser.textContent = event.user_id
 
                     $tr.appendChild($tdId)
                     $tr.appendChild($tdEventDate)
                     $tr.appendChild($tdPrice)
                     $tr.appendChild($tdIsConfirmed)
+                    $tr.appendChild($tdIsRealized)
                     $tr.appendChild($tdUser)
                     $mainTableBody.appendChild($tr)
                 })
@@ -186,6 +199,7 @@
                 $tableTitle.innerText = 'Abonos';
                 $mainTableHeadRow.innerHTML = ''
                 $mainTableBody.innerHTML = ''
+                $createLink.textContent = '';
 
                 const $tdId = document.createElement('td'),
                     $tdAmount = document.createElement('td',),

@@ -24,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/events-confirmated',[EmployeeController::class, 'eventsConfirmated'])->name('employee.events');
 
 Route::get('/events-realized',[EmployeeController::class, 'eventsRealized'])->name('employee.realized');
+
+Route::get('/events-images',[EmployeeController::class, 'eventsImages'])->name('employee.Images');
