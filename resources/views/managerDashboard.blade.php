@@ -22,10 +22,10 @@
     <div class="container-menu">
 	    <div class="cont-menu">
 		    <nav>
-		    	<a id="usersButton">Ver Usuarios</a>
-		    	<a id="packsButton">Ver Paquetes</a>
-		    	<a id="eventsButton">Ver Eventos</a>
-		    	<a id="paidsButton">Ver abonos</a>
+		    	<a id="usersButton"><img src="/images/user.png" width="30px"> Ver Usuarios</a>
+		    	<a id="packsButton"><img src="/images/oferta.png" width="30px"> Ver Paquetes</a>
+		    	<a id="eventsButton"><img src="/images/evento.png" width="30px"> Ver Eventos</a>
+		    	<a id="paidsButton"><img src="/images/pago.png" width="30px"> Ver abonos</a>
 		    </nav>
 		    <label for="btn-menu">✖️</label>
 	    </div>
