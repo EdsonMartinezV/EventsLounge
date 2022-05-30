@@ -27,7 +27,7 @@
 		<nav>
 			<a id="eventsButton">Listar eventos confirmados</a>
 			<a id="realizedButton">Agregar fotos realizados</a>
-			<a href="/">3rd Employee Action</a>
+			<a id="eventsPaid">Abonos</a>
 			<a href="/">4th Employee Action</a>
 			<a href="/">5th Employee Action</a>
 			<a href="/">6th Employee Action</a>
