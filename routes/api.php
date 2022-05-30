@@ -27,4 +27,6 @@ Route::get('/events-paids',[EmployeeController::class, 'eventsPais'])->name('emp
 
 Route::get('/add-paid/{id}',[EmployeeController::class, 'addPaid'])->name('add.Paid');
 
+Route::post('/save-paid/{id}',[EmployeeController::class, 'savePaid'])->name('save.Paid');
+
 

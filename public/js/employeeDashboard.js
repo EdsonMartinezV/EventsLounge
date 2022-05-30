@@ -141,8 +141,7 @@ document.getElementById('eventsPaid').addEventListener('click',function paids(e)
                         $paid = document.createElement('input')
                         $send = document.createElement('button')
                         $send.textContent = 'Enviar'
-                        $paid.setAttribute('type','number')
-                        $paid.setAttribute('id','inputPaid')
+
                         
 
                     $tdId.textContent = event.id
@@ -158,17 +157,13 @@ document.getElementById('eventsPaid').addEventListener('click',function paids(e)
                     $tr.appendChild($tdIsConfirmed)
                     $tr.appendChild($tdIsRealized)
                     $tr.appendChild($tdUser)
-                    $tr.appendChild($paid)
+
                     $tr.appendChild($send)
                     
 
                     $mainTableBody.appendChild($tr) 
 
                     $send.addEventListener('click',function(e) {
-                        var dataPaid = {
-                            paid: document.getElementById('inputPaid').value,
-                        }
-                        console.log(dataPaid)
                 
                         fetch("/api/add-paid/"+event.id, {
                 })
@@ -243,6 +238,38 @@ document.getElementById('eventsPaid').addEventListener('click',function paids(e)
                         $tr.appendChild($send)
 
                         $mainTableBody.appendChild($tr) 
+
+                        //----Evento guardar abono----//
+                        
+                        $send.addEventListener('click',function(e) {
+                        
+                            var dataPaid = {
+                                amount: document.getElementById('inputPaid').value
+                            }
+                            console.log(dataPaid)
+                            fetch("/api/save-paid/"+event.id, {
+                            body: JSON.stringify(dataPaid),
+                            method: "POST",
+                            headers:{
+                                'X-CSRF-TOKEN': '{{ csrf_token()}}',
+                                "Content-type": "application/json; charset=UTF-8"
+                            }
+                    })
+                    .then(function(response){
+                        if(response.ok){
+                            return response.json();
+                        }else{
+                            throw "Error en la llamada AJAX";
+                        }
+                    })
+                    .then(function(text){
+                        //recarga los datos de la tabla
+                        paids(e);
+                    })
+                    .catch(function(err){
+                        console.log(err);
+                    });
+                    });
                     })
                     
                 })
