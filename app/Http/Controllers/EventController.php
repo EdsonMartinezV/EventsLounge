@@ -20,10 +20,15 @@ class EventController extends Controller
     }
 
     public function update(Request $request, $eventId){
-        $event = Event::find($eventId);
-        $event->event_date = $request->event_date;
-        $event->price = $request->price;
-        $event->save();
-        return redirect('/manager');
+        $eventId=$eventId;
+        if($request->is_confirmed=='1'){
+            $event = Event::find($eventId);
+            $event->event_date = $request->event_date;
+            $event->price = $request->price;
+            $event->save();
+            return redirect('/manager');
+        }else{
+            return redirect()->route('manager.events.reason',$eventId);
+        } 
     }
 }

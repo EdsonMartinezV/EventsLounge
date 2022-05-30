@@ -101,6 +101,10 @@ Route::get('/manager/events/edit/{eventId}', [EventController::class, 'edit'])->
 
 Route::put('/manager/events/update/{eventId}', [EventController::class, 'update'])->name('manager.events.update');
 
+Route::get('/reason/events/{id}', function () {
+    return view('reasonEvent');
+})->name('manager.events.reason');
+
 Route::get('/manager/paids', [PaidController::class, 'index'])->name('manager.paids');
 
 /* ---- Rutas cliente ---- */
