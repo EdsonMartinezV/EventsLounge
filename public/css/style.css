@@ -161,6 +161,10 @@ p.small {
 		color: white;
 	}
 
+	.c{
+		color: #49b05e;
+		
+	}
 /*
  * Logo
  */
@@ -186,6 +190,10 @@ p.small {
 		color: #999;
 	}
 	
+.titulos h1{
+	color: #464646;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 /*
  * Navigation
