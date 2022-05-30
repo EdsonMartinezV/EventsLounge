@@ -8,6 +8,8 @@ use App\Models\Pack;
 use App\Models\Event;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\File;
 
 class EmployeeController extends Controller
 {
@@ -28,6 +30,10 @@ class EmployeeController extends Controller
     public function eventsImages(Request $request, $id){
         $image = new Image;
         $image->event_id = $id;
+        $imageE = $request->image;
+
+        
+      
 
        
         $image->save();
@@ -38,11 +44,6 @@ class EmployeeController extends Controller
     }
 
     public function eventsPais(){
-        $image = new Image;
-        $image->event_id = $id;
-
-       
-        $image->save();
 
         $bookings = Event::all();
        

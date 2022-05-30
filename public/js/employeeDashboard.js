@@ -135,15 +135,20 @@ document.getElementById('realizedButton').addEventListener('click',function toli
                         $tdIsConfirmed = document.createElement('td'),
                         $tdIsRealized = document.createElement('td'),
                         $tdUser = document.createElement('td')
-                        $tdImageU = document.createElement('input')
-                        $tdUpdateb = document.createElement('button')
+                        $tdImageUb = document.createElement('input')
+                        $tdform= document.createElement('FORM')
+                        $tdform.setAttribute('enctype','multipart/form-data');
 
-                    $tdImageU.setAttribute('id','image')
-                    $tdImageU.setAttribute('type','file')
-                    $tdImageU.setAttribute('class','form-control-file')
-                    $tdImageU.setAttribute('accept','image/*')
-                        
-                    $tdUpdateb.textContent = 'Actualizar'
+                        $tdUpdateb = document.createElement('button')
+                        $tdUpdateb.textContent = 'añadir foto';
+
+                    $tdImageUb.setAttribute('id','image')
+                    $tdImageUb.setAttribute('type','file')
+                    $tdImageUb.setAttribute('class','form-control-file')
+                    $tdImageUb.setAttribute('accept','image/*')
+
+                   
+                    $tdform.setAttribute('id','form');
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
                     $tdPrice.textContent = event.price
@@ -157,16 +162,20 @@ document.getElementById('realizedButton').addEventListener('click',function toli
                     $tr.appendChild($tdIsConfirmed)
                     $tr.appendChild($tdIsRealized)
                     $tr.appendChild($tdUser)
-                    $tr.appendChild($tdImageU)
+                    $tr.appendChild($tdImageUb)
                     $tr.appendChild($tdUpdateb)
                     $mainTableBody.appendChild($tr) 
 
-                    var dataimage = {
-                        image: document.getElementById('image').files[0]
-                    }
+                   
                  
-
+                   
                     $tdUpdateb.addEventListener('click',function(e) {
+                         var file = new FormData();
+                        $tdform.appendChild($tdImageUb)
+                        var dataimage = {
+                        
+                            image: document.getElementById('image').files[0]
+                        }
                         console.log(document.getElementById('image').files[0])
                         fetch("/api/events-images/"+event.id, {
                         body: JSON.stringify(dataimage),
@@ -258,13 +267,18 @@ document.getElementById('eventsPaid').addEventListener('click',function tolist(e
                         $tdIsConfirmed = document.createElement('td'),
                         $tdIsRealized = document.createElement('td'),
                         $tdUser = document.createElement('td')
-                        $tdImageU = document.createElement('input')
-                        $tdUpdateb = document.createElement('button')
+                        $tdform= document.createElement('FORM')
+                        $tdform.enctype =  "multipart/form-data";
 
-                    $tdImageU.setAttribute('id','image')
+                        $tdImageUb = document.createElement('button')
+
+                    $tdImageUb.setAttribute('id','image')
                     $tdImageU.setAttribute('type','file')
-                    $tdImageU.setAttribute('class','form-control-file')
-                    $tdImageU.setAttribute('accept','image/*')
+                    $tdImageUb.setAttribute('class','form-control-file')
+                    $tdImageUb.setAttribute('accept','image/*')
+
+                    $tdform.appendChild($tdImageUb)
+                    $tdform.setAttribute('id','form')
                         
                     $tdUpdateb.textContent = 'Actualizar'
                     $tdId.textContent = event.id
@@ -290,7 +304,7 @@ document.getElementById('eventsPaid').addEventListener('click',function tolist(e
                  
 
                     $tdUpdateb.addEventListener('click',function(e) {
-                        console.log(document.getElementById('image').files[0])
+                       
                         fetch("/api/events-images/"+event.id, {
                         body: JSON.stringify(dataimage),
                         method: "POST",
@@ -307,7 +321,7 @@ document.getElementById('eventsPaid').addEventListener('click',function tolist(e
                     }
                 })
                 .then(function(text){
-
+                    
                    
                 })
                 .catch(function(err){
