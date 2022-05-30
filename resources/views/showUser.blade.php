@@ -17,7 +17,7 @@
         <d>Lista de usuarios</d>
                 <div class="horizontal-card">
                     <div class = "usersshow">
-                        <a class= "categ"><b>Nomsbre</b></a>
+                        <a class= "categ"><b>Nombre</b></a>
                         <div>                
                             <a>Correo</a>
                         </div>

@@ -73,6 +73,8 @@ Route::get('/manager', function () {
 
 Route::get('/manager/createuser', function () {return view('createUsers');});
 
+Route::get('/manager/createpack', function () {return view('createPack');});
+
 Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
 
 Route::get('/manager/users/create', [UserController::class, 'create'])->name('manager.users.create');
