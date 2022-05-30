@@ -88,9 +88,9 @@ Route::get('/manager/users/create', [UserController::class, 'create'])->name('ma
 
 Route::post('/manager/users/store', [UserController::class, 'store'])->name('manager.users.store');
 
-Route::get('/manager/users/resetPassword/{userId}', [UserController::class, 'resetPassword'])->name('manager.users.resetPassword');
+Route::get('/manager/users/reset-password/{userId}', [UserController::class, 'resetPassword'])->name('manager.users.resetPassword');
 
-Route::post('/manager/users/storePassword/{userId}', [UserController::class, 'storePassword'])->name('manager.users.storePassword');
+Route::put('/manager/users/store-password/{userId}', [UserController::class, 'storePassword'])->name('manager.users.storePassword');
 
 Route::get('/manager/packs', [PackController::class, 'index'])->name('manager.packs');
 

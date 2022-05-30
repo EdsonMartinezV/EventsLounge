@@ -13,12 +13,12 @@
     <d>Cambiar contraseña de usuario</d>
     <div class="row justify-content-center">
         <div class="card">
-            <form action="/manager" method="POST">
+            <form action="{{ route('manager.users.storePassword', $user->id) }}" method="POST">
                 @csrf
                 @method('PUT')  
                 <div class="form-group">
                     <label for="exampleFormControlInput1"><f>Nueva Contraseña</f></label>
-                    <input type="password" class="form-control" name="password_from_manager"
+                    <input type="password" class="form-control" name="password"
                     id="exampleFormControlInput1">
                 </div>
                 <input  class="crear" type="submit" value="Guardar Contraseña">
