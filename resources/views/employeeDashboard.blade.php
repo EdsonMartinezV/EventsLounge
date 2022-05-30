@@ -28,11 +28,8 @@
 			<a id="eventsButton">Listar eventos confirmados</a>
 			<a id="realizedButton">Agregar fotos realizados</a>
 			<a id="eventsPaid">Abonos</a>
-			<a href="/">4th Employee Action</a>
-			<a href="/">5th Employee Action</a>
-			<a href="/">6th Employee Action</a>
-			<a id="eventsButton" href="employee/showEvents">1st Employee Action</a>
-			<a id="toPayButton" href="employee/showToPay">2nd Employee Action</a>
+			<a id="eventsButton" href="employee/showEvents">Editar Eventos</a>
+			<a id="toPayButton" href="employee/showToPay">Abonos</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
