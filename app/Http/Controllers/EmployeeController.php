@@ -24,18 +24,16 @@ class EmployeeController extends Controller
         
         $bookings= Event::where([['is_confirmed','=',1],['is_realized','=',1]])->get();
        
-        return $bookings->toJson();
+        return view("addImage",compact('bookings'));
     }
 
     public function eventsImages(Request $request, $id){
         $image = new Image;
         $image->event_id = $id;
-        $imageE = $request->image;
-
+        $nombre = 'prueba';
         
+   
       
-
-       
         $image->save();
 
         $bookings = Event::all();
