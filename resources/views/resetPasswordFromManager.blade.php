@@ -1,4 +1,5 @@
 @section('content')
+@include('managerDashboard')
 <!DOCTYPE html>
 <html lang="en">
 <head>

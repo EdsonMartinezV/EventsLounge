@@ -4,6 +4,7 @@
             $packsButton = document.getElementById('packsButton'),
             $eventsButton = document.getElementById('eventsButton'),
             $paidsButton = document.getElementById('paidsButton'),
+            $billsButton = document.getElementById('billsButton'),
             $mainTable = document.getElementById('mainTable'),
             $mainTableHeadRow = document.getElementById('mainTableHeadRow'),
             $mainTableBody = document.getElementById('mainTableBody'),
@@ -243,5 +244,9 @@
                 console.error(`Error ${err.status}: ${err.statusText}`);
                 $main.innerHTML = `Error ${err.status}: ${err.statusText}`
             })
+    })
+
+    $billsButton.addEventListener('click', () => {
+        
     })
 })()

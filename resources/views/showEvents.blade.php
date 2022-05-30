@@ -10,7 +10,7 @@
     <title>Paquetes</title>
 </head>
 <body>
-@include ('header')
+@include('managerDashboard')
 </br>
     <center><h1>Lista de ventos</h1></center>
     </br>

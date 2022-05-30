@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-@include ('header')
+@include('employeeDashboard')
 <div class="container">
 			<div class="logo">
 				<h1>Employee Dashboard</h1>
