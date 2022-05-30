@@ -174,13 +174,76 @@ document.getElementById('eventsPaid').addEventListener('click',function paids(e)
                 })
                 .then(function(response){
                     if(response.ok){
-                        return response.text()
+                        return response.json();
                     }else{
                         throw "Error en la llamada AJAX";
                     }
                 })
-                .then(function(text){
-                   console.log(text)
+                .then(function(data){
+                    $mainTableHeadRow.innerHTML = ''
+                    $mainTableBody.innerHTML = ''
+    
+                    const $tdId = document.createElement('td'),
+                        $tdEventDate = document.createElement('td',),
+                        $tdPrice = document.createElement('td'),
+                        $tdIsConfirmed = document.createElement('td'),
+                        $tdIsRealized = document.createElement('td'),
+                        $tdUser = document.createElement('td')
+                        $tdImage = document.createElement('td')
+                        $tdUpdate= document.createElement('td')
+    
+                    $tdId.textContent = 'ID'
+                    $tdEventDate.textContent = 'Fecha del evento'
+                    $tdPrice.textContent = 'Precio'
+                    $tdIsConfirmed.textContent = 'Confirmado'
+                    $tdIsRealized.textContent = 'Realizado'
+                    $tdImage.textContent = 'Abono'
+                    $tdUser.textContent = 'Usuario'
+                    $tdUpdate.textContent = 'Añadir'
+    
+                    $fragment.appendChild($tdId)
+                    $fragment.appendChild($tdEventDate)
+                    $fragment.appendChild($tdPrice)
+                    $fragment.appendChild($tdIsConfirmed)
+                    $fragment.appendChild($tdIsRealized)
+                    $fragment.appendChild($tdUser)
+                    $fragment.appendChild($tdImage)
+                    //$fragment.appendChild($tdUpdate)
+                    $mainTableHeadRow.appendChild($fragment)
+    
+                    data.forEach((event) => {
+                        const $tr = document.createElement('tr'),
+                            $tdId = document.createElement('td'),
+                            $tdEventDate = document.createElement('td'),
+                            $tdPrice = document.createElement('td'),
+                            $tdIsConfirmed = document.createElement('td'),
+                            $tdIsRealized = document.createElement('td'),
+                            $tdUser = document.createElement('td')
+                            $paid = document.createElement('input')
+                            $send = document.createElement('button')
+                            $send.textContent = 'Enviar'
+                            $paid.setAttribute('type','number')
+                            $paid.setAttribute('id','inputPaid')
+                            
+    
+                        $tdId.textContent = event.id
+                        $tdEventDate.textContent = event.event_date
+                        $tdPrice.textContent = event.price
+                        event.is_confirmed == 1 ? $tdIsConfirmed.textContent = 'Si' : $tdIsConfirmed.textContent = 'No'
+                        event.is_realized == 1 ? $tdIsRealized.textContent = 'Si' : $tdIsRealized.textContent = 'No'
+                        $tdUser.textContent = event.user_id
+    
+                        $tr.appendChild($tdId)
+                        $tr.appendChild($tdEventDate)
+                        $tr.appendChild($tdPrice)
+                        $tr.appendChild($tdIsConfirmed)
+                        $tr.appendChild($tdIsRealized)
+                        $tr.appendChild($tdUser)
+                        $tr.appendChild($paid)
+                        $tr.appendChild($send)
+
+                        $mainTableBody.appendChild($tr) 
+                    })
                     
                 })
                 .catch(function(err){
