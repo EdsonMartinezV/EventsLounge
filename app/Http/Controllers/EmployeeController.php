@@ -24,23 +24,33 @@ class EmployeeController extends Controller
         
         $bookings= Event::where([['is_confirmed','=',1],['is_realized','=',1]])->get();
        
-        return $bookings->toJson();
+        return view("addImage",compact('bookings'));
     }
 
     public function eventsImages(Request $request, $id){
-        $image = new Image;
-        $image->event_id = $id;
-        $imageE = $request->image;
-
-        
-      
-
+        $urlimages = [];
        
-        $image->save();
+        $imagenes = $request->file('images');
+            foreach($imagenes as $imagen){
+                $nombre = time().'_'.$imagen->getClientOriginalName();
+                $imagen->storeAs('public/events',$nombre);
+              
+                
+                $urlimages[]['url'] = '/storage/events/'.$nombre;
+            }
 
-        $bookings = Event::all();
+            foreach($urlimages as $routeimage){
+                $image = new Image;
+                $image->event_id = $id;
+                $image->url =$routeimage['url'];
+                $image->save();
+         
+            }
+   
+
+        $bookings= Event::where([['is_confirmed','=',1],['is_realized','=',1]])->get();
        
-        return $bookings->toJson();
+        return redirect()->route('employee.realized');
     }
 
     public function eventsPais(){

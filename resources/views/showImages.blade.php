@@ -16,7 +16,7 @@
     <title>Document</title>
 </head>
 <body>
-        @include ('header')
+        @include ('managerDashboard')
         <div class ="titulos">
         <center><h1>Fotos de evento</h1></center>
         </div>
