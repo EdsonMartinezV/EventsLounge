@@ -58,7 +58,7 @@
                     $tdEmail.textContent = user.email
                     $tdRole.textContent = user.role
                     $aResetPassword.textContent = 'Reestablecer contraseña'
-                    $aResetPassword.href = `/manager/users/resetPassword/${user.id}`
+                    $aResetPassword.href = `/manager/users/reset-password/${user.id}`
 
                     $tr.appendChild($tdId)
                     $tr.appendChild($tdName)

@@ -78,12 +78,13 @@ class UserController extends Controller
     }
 
     public function resetPassword($userId){
-        return view('resetPassword', compact('userId'));
+        $user = User::find($userId);
+        return view('resetPasswordFromManager', compact('user'));
     }
 
     public function storePassword(Request $request, $userId){
         $user = User::find($userId);
-        $user->password = Hash::make($request->pasword);
+        $user->password = Hash::make($request->password);
         $user->save();
         return redirect('/manager');
     }
