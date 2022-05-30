@@ -34,6 +34,7 @@ Route::get('/packs', function () {
     return view('packs');
 });
 
+Route::get('/showimages', function () {return view('showImages');});
 
 Route::get('/mybookings', function () {
     return view('bookings');
@@ -72,6 +73,11 @@ Route::get('/manager', function () {
 });
 
 Route::get('/manager/createuser', function () {return view('createUsers');});
+
+Route::get('/manager/createpack', function () {return view('createPack');});
+
+Route::get('/manager/editEvents', function () {return view('editEvents');});
+
 
 Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
 
