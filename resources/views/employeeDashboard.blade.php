@@ -5,6 +5,9 @@
 	<title>Employee Dshboard</title>
 	<link rel="stylesheet" href="css/dashboardStyles.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/tables.css">
+	<link rel="stylesheet" href="css/dashboardStyles.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 @include ('header')
@@ -22,11 +25,30 @@
 <div class="container-menu">
 	<div class="cont-menu">
 		<nav>
+			<a id="eventsButton">Listar eventos confirmados</a>
+			<a id="realizedButton">Agregar fotos realizados</a>
+			<a id="eventsPaid">Abonos</a>
+			<a href="/">4th Employee Action</a>
+			<a href="/">5th Employee Action</a>
+			<a href="/">6th Employee Action</a>
 			<a id="eventsButton" href="employee/showEvents">1st Employee Action</a>
 			<a id="toPayButton" href="employee/showToPay">2nd Employee Action</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
 </div>
+<main id="main">
+	<table class="table" id="mainTable">
+		<thead>
+			<tr id="mainTableHeadRow">
+
+			</tr>
+		</thead>
+		<tbody id="mainTableBody">
+		
+		</tbody>
+	</table>
+</main>
+<script src="{{ asset('js/employeeDashboard.js') }}"></script>
 </body>
 </html>

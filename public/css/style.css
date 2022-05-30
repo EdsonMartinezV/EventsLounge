@@ -27,6 +27,12 @@ h1#title span span {
 	font-weight: 400;
 }
 
+.form-control{
+	width:100%;
+	height: 30px;
+      margin-bottom: 15px;
+  }
+
 h2 {
 	text-transform: uppercase;
 	color: rgb(0, 0, 0);
@@ -155,6 +161,10 @@ p.small {
 		color: white;
 	}
 
+	.c{
+		color: #49b05e;
+		
+	}
 /*
  * Logo
  */
@@ -180,6 +190,10 @@ p.small {
 		color: #999;
 	}
 	
+.titulos h1{
+	color: #464646;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
 /*
  * Navigation

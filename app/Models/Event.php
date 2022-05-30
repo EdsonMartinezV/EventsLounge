@@ -11,9 +11,9 @@ class Event extends Model
     protected $fillable = [
         'event_date',
         'price',
-        'image',
         'is_confirmed',
-        'realized'
+        'is_realized',
+        'reason'
     ];
 
     public function user(){
@@ -28,4 +28,7 @@ class Event extends Model
         return $this->hasMany(Image::class, 'event_id','id');
     }
 
+    public function paids(){
+        return $this->hasMany(Paid::class);
+    }
 }

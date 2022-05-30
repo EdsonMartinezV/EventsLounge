@@ -11,6 +11,7 @@ class Pack extends Model
     protected $fillable = [
         'name',
         'price',
+        'is_active'
     ];
 
     public function events(){

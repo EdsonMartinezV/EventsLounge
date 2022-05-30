@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+/* ---- Rutas empleado ---- */
+Route::get('/events-confirmated',[EmployeeController::class, 'eventsConfirmated'])->name('employee.events');
+
+Route::get('/events-realized',[EmployeeController::class, 'eventsRealized'])->name('employee.realized');
+
+Route::post('/events-images/{id}',[EmployeeController::class, 'eventsImages'])->name('employee.Images');
+
+Route::get('/events-paids',[EmployeeController::class, 'eventsPais'])->name('employee.Paids');

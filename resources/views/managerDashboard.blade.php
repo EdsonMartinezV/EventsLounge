@@ -22,34 +22,29 @@
     <div class="container-menu">
 	    <div class="cont-menu">
 		    <nav>
-		    	<a id="usersButton" href="manager/showUser">Ver Usuarios</a>
-		    	<a id="packsButton" href="manager/showPackages">Ver Paquetes</a>
-		    	<a id="eventsButton" href="manager/showEvents">Ver Eventos</a>
-		    	<a id="paidsButton" href="manager/showToPay">Ver abonos</a>
+		    	<a id="usersButton"><img src="/images/user.png" width="30px"> Ver Usuarios</a>
+		    	<a id="packsButton"><img src="/images/oferta.png" width="30px"> Ver Paquetes</a>
+		    	<a id="eventsButton"><img src="/images/evento.png" width="30px"> Ver Eventos</a>
+		    	<a id="paidsButton"><img src="/images/pago.png" width="30px"> Ver abonos</a>
 		    </nav>
 		    <label for="btn-menu">✖️</label>
 	    </div>
     </div>
     <main id="main">
+</br>
+</br>
+<center><h2 id="tableTitle"></h2></center>
         <table class="table" id="mainTable">
             <thead>
                 <tr id="mainTableHeadRow">
-					<th>#</th><th>#</th><th>#</th>
+
                 </tr>
             </thead>
-
-			<tr>
-				<td>#</td><td>#</td><td>#</td>
-			</tr>
-
-			<tr>
-				<td>#</td><td>#</td><td>#</td>
-			</tr>
-
-			<tr>
-				<td>#</td><td>#</td><td>#</td>
-			</tr>
-        </table>
+			<tbody id="mainTableBody">
+			
+			</tbody>
+        </table><br>
+		<a id="createLink"></a>
     </main>
     <script src="{{ asset('js/managerDashboard.js') }}"></script>
 </body>
