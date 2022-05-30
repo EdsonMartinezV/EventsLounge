@@ -18,11 +18,11 @@
         <div class="card card-2">
             <div class="card-body">
                 <center><h1>Editar Evento</h1></center>
-                <form method="POST" action="{{ route('manager.events.update', $event->id) }}">
+                <form method="POST" action="">
                     @method('PUT')
                     @csrf
                     <div class="input-group">
-                        <p>Evento: {{ $event->id }}</p><br>
+                        <p>Evento: {{ $eventId }}</p><br>
                         <p>Fecha de evento:</p>
                             <input class="input--style-2" type="text" name="event_date" value="{{ $event->event_date }}">
                     </div>
@@ -33,15 +33,7 @@
                                     <input class="input--style-2" type="text" name="price" value="{{ $event->price }}">
                             </div>
                         </div>
-                        <div class="col-2">
-                            <div>
-                                <p>Confirmado:</p>
-                                <select class="form-control" name="is_confirmed" id="exampleFormControlSelect1">
-                                    <option value="0" {{ $event->is_confirmed ? '' : 'selected'}}>No</option>
-                                    <option value="1" {{ $event->is_confirmed ? 'selected' : ''}}>Si</option>
-                                </select>
-                            </div>
-                        </div>
+                        
                     </div>
                     </br>
                     <center><button class="btn btn--radius btn--green" type="submit">Guardar cambios</button><center>

@@ -12,7 +12,8 @@ class Event extends Model
         'event_date',
         'price',
         'is_confirmed',
-        'is_realized'
+        'is_realized',
+        'reason'
     ];
 
     public function user(){
