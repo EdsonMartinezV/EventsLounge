@@ -18,7 +18,8 @@
         <div class="card card-2">
             <div class="card-body">
                 <center><h1>Crear Usuario</h1></center>
-                    <form method="POST">
+                    <form method="POST" action="{{ route('manager.users.store') }}">
+                        @csrf
                         <div class="input-group">
                             <input class="input--style-2" type="text" placeholder="Nombre" name="name">
                         </div>
@@ -35,7 +36,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2" type="text" placeholder="Contraseña" name="password">
+                                    <input class="input--style-2" type="password" placeholder="Contraseña" name="password">
                                 </div>
                             </div>
                             <div class="col-2">
