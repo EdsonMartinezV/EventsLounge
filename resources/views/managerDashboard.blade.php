@@ -26,6 +26,7 @@
 		    	<a id="packsButton"><img src="/images/oferta.png" width="30px"> Ver Paquetes</a>
 		    	<a id="eventsButton"><img src="/images/evento.png" width="30px"> Ver Eventos</a>
 		    	<a id="paidsButton"><img src="/images/pago.png" width="30px"> Ver abonos</a>
+				<a id="billsButton"><img src="/images/bills.png" width="30px"> Ver gastos</a>
 		    </nav>
 		    <label for="btn-menu">✖️</label>
 	    </div>

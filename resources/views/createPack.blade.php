@@ -10,8 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-@include ('header')
-@include ('managerHeader')
+@include('managerDashboard')
 <body background="/images/eventos.jpeg">
     </br>
     <div class="wrapper wrapper--w960">

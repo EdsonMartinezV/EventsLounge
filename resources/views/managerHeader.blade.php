@@ -25,6 +25,7 @@
 		    	<a id="packsButton">Ver Paquetes</a>
 		    	<a id="eventsButton">Ver Eventos</a>
 		    	<a id="paidsButton">Ver abonos</a>
+				<a id="billsButton">Ver gastos</a>
 		    </nav>
 		    <label for="btn-menu">✖️</label>
 	    </div>
