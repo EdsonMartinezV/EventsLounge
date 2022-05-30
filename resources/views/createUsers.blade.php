@@ -40,18 +40,18 @@
                                 </div>
                             </div>
                             <div class="col-2">
-                                <div class="input-group">
+                                <div>
                                     <input class="input--style-2 js-datepicker" type="text" placeholder="Rol de usuario" name="role">
                                     <select class="form-control" name="role" id="exampleFormControlSelect1">
                                     <option value="supervisor">Cliente</option>
                                     <option value="manager">Empleado</option>
-                                    <option value="client">Encargado</option>
+                                    <option value="client">Gerente</option>
                                   </select>
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit">Guardar usuario nuevo</button>
+                            <center><button class="btn btn--radius btn--green" type="submit">Guardar usuario nuevo</button><center>
                         </div>
                     </form>
                 </div>

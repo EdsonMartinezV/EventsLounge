@@ -31,7 +31,9 @@
 	    </div>
     </div>
     <main id="main">
-		<h2 id="tableTitle"></h2>{{-- @Josdav --}}
+</br>
+</br>
+<center><h2 id="tableTitle"></h2></center>
         <table class="table" id="mainTable">
             <thead>
                 <tr id="mainTableHeadRow">
