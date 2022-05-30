@@ -25,6 +25,7 @@ document.getElementById('eventsButton').addEventListener('click',function tolist
                     $tdIsConfirmed = document.createElement('td'),
                     $tdIsRealized = document.createElement('td'),
                     $tdUser = document.createElement('td')
+                    $tdUpdate = document.createElement('td')
 
                 $tdId.textContent = 'ID'
                 $tdEventDate.textContent = 'Fecha del evento'
@@ -32,6 +33,7 @@ document.getElementById('eventsButton').addEventListener('click',function tolist
                 $tdIsConfirmed.textContent = 'Confirmado'
                 $tdIsRealized.textContent = 'Realizado'
                 $tdUser.textContent = 'Usuario'
+                $tdUpdate.textContent = 'Actualizar'
 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdEventDate)
@@ -49,6 +51,7 @@ document.getElementById('eventsButton').addEventListener('click',function tolist
                         $tdIsConfirmed = document.createElement('td'),
                         $tdIsRealized = document.createElement('td'),
                         $tdUser = document.createElement('td')
+                        $tdUpdate = document.createElement('input')
 
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
@@ -103,6 +106,7 @@ document.getElementById('realizedButton').addEventListener('click',function toli
                     $tdIsRealized = document.createElement('td'),
                     $tdUser = document.createElement('td')
                     $tdImage = document.createElement('td')
+                    $tdUpdate= document.createElement('td')
 
                 $tdId.textContent = 'ID'
                 $tdEventDate.textContent = 'Fecha del evento'
@@ -111,6 +115,7 @@ document.getElementById('realizedButton').addEventListener('click',function toli
                 $tdIsRealized.textContent = 'Realizado'
                 $tdImage.textContent = 'Imagen'
                 $tdUser.textContent = 'Usuario'
+                $tdUpdate.textContent = 'Actualizar'
 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdEventDate)
@@ -119,6 +124,7 @@ document.getElementById('realizedButton').addEventListener('click',function toli
                 $fragment.appendChild($tdIsRealized)
                 $fragment.appendChild($tdUser)
                 $fragment.appendChild($tdImage)
+                $fragment.appendChild($tdUpdate)
                 $mainTableHeadRow.appendChild($fragment)
 
                 data.forEach((event) => {
@@ -130,11 +136,12 @@ document.getElementById('realizedButton').addEventListener('click',function toli
                         $tdIsRealized = document.createElement('td'),
                         $tdUser = document.createElement('td')
                         $tdImage = document.createElement('input')
+                        $tdUpdateb = document.createElement('button')
 
                     $tdImage.setAttribute('type','file')
                     $tdImage.setAttribute('accept','image/*')
                         
-
+                    $tdUpdateb.textContent = 'Actualizar'
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
                     $tdPrice.textContent = event.price
@@ -149,6 +156,7 @@ document.getElementById('realizedButton').addEventListener('click',function toli
                     $tr.appendChild($tdIsRealized)
                     $tr.appendChild($tdUser)
                     $tr.appendChild($tdImage)
+                    $tr.appendChild($tdUpdateb)
                     $mainTableBody.appendChild($tr)
     
         
