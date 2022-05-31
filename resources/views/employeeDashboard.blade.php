@@ -27,9 +27,10 @@
 		<nav>
 			<a id="eventsButton">Listar eventos confirmados</a>
 			<a href="/events-realized">Agregar fotos realizados</a>
-			<a id="eventsPaid">Abonos</a>
-			<a id="eventsButton">Editar Eventos</a>
-			<a id="toPayButton" href="employee/showToPay">Abonos</a>
+			<a id="eventsPaid">Añadir abonos</a>
+			<a id="paids">Ver abonos</a>
+			<a id="toPayButton" href="employee/showToPay">Añadir Abonos</a>
+			<a id="toWatchButton" href="employee/showToPay">Ver Abonos</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
@@ -48,5 +49,6 @@
 </main>
 
 <script src="{{ asset('js/employeeDashboard.js') }}"></script>
+<script src="{{ asset('js/watchPaids.js') }}"></script>
 </body>
 </html>
