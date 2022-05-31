@@ -29,4 +29,6 @@ Route::get('/add-paid/{id}',[EmployeeController::class, 'addPaid'])->name('add.P
 
 Route::post('/save-paid/{id}',[EmployeeController::class, 'savePaid'])->name('save.Paid');
 
+Route::get('/all-paids',[EmployeeController::class, 'allPaids'])->name('all.Paids');
+
 

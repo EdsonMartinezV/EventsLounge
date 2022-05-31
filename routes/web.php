@@ -63,10 +63,6 @@ Route::get('/employee', function () {
 Route::get('/employee/showEvents', function () {
     return view('showEvents');
 });
-Route::get('/employee/showToPay', function () {
-    return view('showToPay');
-});
-
 
 /* ---- Manager Routes ---- */
 Route::get('/manager', function () {
@@ -117,6 +113,8 @@ Route::get('/manager/bills', [BillController::class, 'index'])->name('manager.bi
 Route::get('/manager/bills/create/{eventId}', [BillController::class, 'create'])->name('manager.bills.create');
 
 Route::post('/manager/bills/store/{eventId}', [BillController::class, 'store'])->name('manager.bills.store');
+
+Route::get('/manager/images/watch/{eventId}', [EventController::class, 'images'])->name('manager.events.images');
 
 /* ---- Rutas cliente ---- */
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');

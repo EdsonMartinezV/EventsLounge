@@ -77,4 +77,10 @@ class EmployeeController extends Controller
         $bookings= Event::where([['id','=',$id]])->get();
         return $bookings->toJson();
     }
+
+    public function allPaids(){
+
+        $paids= Paid::all();
+        return $paids->toJson();
+    }
 }

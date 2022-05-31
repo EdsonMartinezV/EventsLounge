@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Image;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -50,7 +51,16 @@ class EventController extends Controller
                 ha sido rechazado debido a el motivo '.$event->reason 
             ];
             Mail::to("sop.man.kaem@gmail.com")->send(new TestMail($details));
-            
+
             return redirect('/manager');
+    }
+
+    public function images( $id){
+        $id = $id;
+        $images= Image::join('events','images.event_id', '=', 'events.id')
+        -> where ('images.event_id',$id)
+        ->get();
+
+        return view('imageView', compact('images'));
     }
 }

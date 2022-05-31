@@ -38,7 +38,7 @@
         e.preventDefault();
         //se limpia lo que trae la tabla
         var Table = document.getElementById("bookings");
-            Table.innerHTML = "";
+            //Table.innerHTML = "";
        const $fragment = document.createDocumentFragment()
 
         fetch("/my-bookings")
