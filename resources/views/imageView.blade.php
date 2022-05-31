@@ -17,20 +17,22 @@
         <div class="card card-2">
             <div class="card-body">
                 <center><h1>Imagenes del Evento</h1></center>
+                @if (!empty($images))
                     @foreach ($images as $image)
-                @endforeach
+                    @endforeach
                     <div class="input-group">
                         <center><h2>Evento: {{ $image->event_id}}</h2></center>
                     </div>
                     @php
                     $count=0;
                     @endphp
-
                     @foreach ($images as $image)
                         <a href={{$image->url}}> Ver imagen {{$count+=1}}</a><br>
                     @endforeach
-                    </br>
+                    </br>  
+                @endif     
             </div>
+            <a href="/manager" class="btn btn-success">Regresar al principal</a>
         <div>
     </div>
 </body>
