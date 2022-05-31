@@ -20,15 +20,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-/* ---- Rutas empleado ---- */
-Route::get('/events-confirmated',[EmployeeController::class, 'eventsConfirmated'])->name('employee.events');
+ /* ---- Rutas empleado ---- */
+ Route::get('/events-confirmated',[EmployeeController::class, 'eventsConfirmated'])->name('employee.events');
 
-Route::get('/events-paids',[EmployeeController::class, 'eventsPais'])->name('employee.Paids');
-
-Route::get('/add-paid/{id}',[EmployeeController::class, 'addPaid'])->name('add.Paid');
-
-Route::post('/save-paid/{id}',[EmployeeController::class, 'savePaid'])->name('save.Paid');
-
-Route::post('/all-paids/{id}',[EmployeeController::class, 'allPaids'])->name('all.Paids');
+ Route::get('/events-paids',[EmployeeController::class, 'eventsPais'])->name('employee.Paids');
+ 
+ Route::get('/add-paid/{id}',[EmployeeController::class, 'addPaid'])->name('add.Paid');
+ 
+ Route::post('/save-paid/{id}',[EmployeeController::class, 'savePaid'])->name('save.Paid');
+ 
+ Route::get('/all-paids',[EmployeeController::class, 'allPaids'])->name('all.Paids');
 
 

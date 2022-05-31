@@ -6,7 +6,7 @@ document.getElementById('paids').addEventListener('click',function tolist(e) {
     $fragment = document.createDocumentFragment();
 
 
-    fetch("/api/events-confirmated")
+    fetch("/api/all-paids")
     .then(function(response){
         if(response.ok){
            return response.json();
@@ -20,56 +20,36 @@ document.getElementById('paids').addEventListener('click',function tolist(e) {
                 $mainTableBody.innerHTML = ''
 
                 const $tdId = document.createElement('td'),
-                    $tdEventDate = document.createElement('td',),
-                    $tdPrice = document.createElement('td'),
-                    $tdIsConfirmed = document.createElement('td'),
-                    $tdIsRealized = document.createElement('td'),
-                    $tdUser = document.createElement('td')
-                    $tdUpdate = document.createElement('td')
+                $tdamount = document.createElement('td',),
+                $tdevent_id = document.createElement('td')
 
                 $tdId.textContent = 'ID'
-                $tdEventDate.textContent = 'Fecha del evento'
-                $tdPrice.textContent = 'Precio'
-                $tdIsConfirmed.textContent = 'Confirmado'
-                $tdIsRealized.textContent = 'Realizado'
-                $tdUser.textContent = 'Usuario'
-                $tdUpdate.textContent = 'Actualizar'
+                $tdamount.textContent = 'Abono'
+                $tdevent_id.textContent = 'Evento'
 
                 $fragment.appendChild($tdId)
-                $fragment.appendChild($tdEventDate)
-                $fragment.appendChild($tdPrice)
-                $fragment.appendChild($tdIsConfirmed)
-                $fragment.appendChild($tdIsRealized)
-                $fragment.appendChild($tdUser)
+                $fragment.appendChild($tdamount)
+                $fragment.appendChild($tdevent_id)
                 $mainTableHeadRow.appendChild($fragment)
 
                 data.forEach((event) => {
                     const $tr = document.createElement('tr'),
                         $tdId = document.createElement('td'),
-                        $tdEventDate = document.createElement('td'),
-                        $tdPrice = document.createElement('td'),
-                        $tdIsConfirmed = document.createElement('td'),
-                        $tdIsRealized = document.createElement('td'),
-                        $tdUser = document.createElement('td')
-                        $tdUpdate = document.createElement('input')
+                        $tdamount = document.createElement('td'),
+                        $tdevent_id = document.createElement('td')
+
 
                     $tdId.textContent = event.id
-                    $tdEventDate.textContent = event.event_date
-                    $tdPrice.textContent = event.price
-                    event.is_confirmed == 1 ? $tdIsConfirmed.textContent = 'Si' : $tdIsConfirmed.textContent = 'No'
-                    event.is_realized == 1 ? $tdIsRealized.textContent = 'Si' : $tdIsRealized.textContent = 'No'
-                    $tdUser.textContent = event.user_id
+                    $tdamount.textContent = event.amount
+                    $tdevent_id.textContent = event.event_id
 
                     $tr.appendChild($tdId)
-                    $tr.appendChild($tdEventDate)
-                    $tr.appendChild($tdPrice)
-                    $tr.appendChild($tdIsConfirmed)
-                    $tr.appendChild($tdIsRealized)
-                    $tr.appendChild($tdUser)
+                    $tr.appendChild($tdamount)
+                    $tr.appendChild($tdevent_id)
+
                     $mainTableBody.appendChild($tr)
     
         
-
 })
 
 })
