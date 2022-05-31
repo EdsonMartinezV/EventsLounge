@@ -118,6 +118,8 @@ Route::get('/manager/bills/create/{eventId}', [BillController::class, 'create'])
 
 Route::post('/manager/bills/store/{eventId}', [BillController::class, 'store'])->name('manager.bills.store');
 
+Route::get('/manager/images/watch/{eventId}', [EventController::class, 'images'])->name('manager.events.images');
+
 /* ---- Rutas cliente ---- */
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
 

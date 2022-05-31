@@ -148,6 +148,7 @@
                     $tdUser = document.createElement('td'),
                     $tdEdit = document.createElement('td'),
                     $tdRegisterBill = document.createElement('td')
+                    $tdimages = document.createElement('td'),
 
                 $tdId.textContent = 'ID'
                 $tdEventDate.textContent = 'Fecha del evento'
@@ -157,6 +158,7 @@
                 $tdUser.textContent = 'Usuario'
                 $tdEdit.textContent = 'Editar'
                 $tdRegisterBill.textContent = 'Registrar gasto'
+                $tdimages.textContent = 'Ver imagenes'
 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdEventDate)
@@ -166,6 +168,7 @@
                 $fragment.appendChild($tdUser)
                 $fragment.appendChild($tdEdit)
                 $fragment.appendChild($tdRegisterBill)
+                $fragment.appendChild($tdimages)
                 $mainTableHeadRow.appendChild($fragment)
 
                 events.forEach((event) => {
@@ -178,6 +181,8 @@
                         $tdUser = document.createElement('td'),
                         $tdEdit = document.createElement('td'),
                         $aEdit = document.createElement('a'),
+                        $tdImages = document.createElement('td'),
+                        $aImages = document.createElement('a'),
                         $tdRegisterBill = document.createElement('td'),
                         $aRegisterBill = document.createElement('a')
 
@@ -189,8 +194,12 @@
                     $tdUser.textContent = event.user_id
                     $aEdit.textContent = 'Editar'
                     $aEdit.setAttribute('href', `/manager/events/edit/${event.id}`)
+                    
                     $aRegisterBill.textContent = 'Registrar gasto'
                     $aRegisterBill.setAttribute('href', `/manager/bills/create/${event.id}`)
+
+                    $aImages.textContent = 'Ver fotos'
+                    $aImages.setAttribute('href', `/manager/images/watch/${event.id}`)
 
                     $tr.appendChild($tdId)
                     $tr.appendChild($tdEventDate)
@@ -202,6 +211,14 @@
                     $tr.appendChild($tdEdit)
                     $tdRegisterBill.appendChild($aRegisterBill)
                     $tr.appendChild($tdRegisterBill)
+                    $tdImages.appendChild($aImages)
+                    if(event.is_confirmed == '0'){
+                        $tderror= document.createElement('td'),
+                        $tderror.textContent = 'No disponible'
+                        $tr.appendChild($tderror)
+                    }else{
+                        $tr.appendChild($tdImages)
+                    }
                     $mainTableBody.appendChild($tr)
                 })
                 console.log(events);
