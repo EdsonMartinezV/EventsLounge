@@ -47,4 +47,12 @@ class User extends Authenticatable
     public function events(){
         return $this->hasMany(Event::class,'user_id','id');
     }
+
+    public function isManager() {
+        return $this->role === 'manager';
+     }
+
+     public function isEmployee() {
+        return $this->role === 'employee';
+     }
 }
