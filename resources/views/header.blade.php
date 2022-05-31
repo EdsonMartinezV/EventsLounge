@@ -1,5 +1,5 @@
 <header id="main-header">
-		<a id="logo-header" href="#">
+		<a id="logo-header" href="/">
             <span  class="site-name" >Salon de Eventos</span>
 			<span class="site-desc">Reserva con nosotros.</span>
 		</a>

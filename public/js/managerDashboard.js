@@ -144,16 +144,18 @@
                     $tdEventDate = document.createElement('td',),
                     $tdPrice = document.createElement('td'),
                     $tdIsConfirmed = document.createElement('td'),
+                    $tdConfirmedBy = document.createElement('td'),
                     $tdIsRealized = document.createElement('td'),
                     $tdUser = document.createElement('td'),
                     $tdEdit = document.createElement('td'),
-                    $tdRegisterBill = document.createElement('td')
-                    $tdimages = document.createElement('td'),
+                    $tdRegisterBill = document.createElement('td'),
+                    $tdimages = document.createElement('td')
 
                 $tdId.textContent = 'ID'
                 $tdEventDate.textContent = 'Fecha del evento'
                 $tdPrice.textContent = 'Precio'
                 $tdIsConfirmed.textContent = 'Confirmado'
+                $tdConfirmedBy.textContent = 'Confirmado por gerente No.'
                 $tdIsRealized.textContent = 'Realizado'
                 $tdUser.textContent = 'Usuario'
                 $tdEdit.textContent = 'Editar'
@@ -164,6 +166,7 @@
                 $fragment.appendChild($tdEventDate)
                 $fragment.appendChild($tdPrice)
                 $fragment.appendChild($tdIsConfirmed)
+                $fragment.appendChild($tdConfirmedBy)
                 $fragment.appendChild($tdIsRealized)
                 $fragment.appendChild($tdUser)
                 $fragment.appendChild($tdEdit)
@@ -177,6 +180,7 @@
                         $tdEventDate = document.createElement('td'),
                         $tdPrice = document.createElement('td'),
                         $tdIsConfirmed = document.createElement('td'),
+                        $tdConfirmedBy = document.createElement('td'),
                         $tdIsRealized = document.createElement('td'),
                         $tdUser = document.createElement('td'),
                         $tdEdit = document.createElement('td'),
@@ -190,14 +194,13 @@
                     $tdEventDate.textContent = event.event_date
                     $tdPrice.textContent = `$ ${event.price}`
                     $tdIsConfirmed.textContent = event.is_confirmed == 1 ? 'Si' : 'No'
+                    $tdConfirmedBy.textContent = event.is_confirmed > 0 ? event.is_confirmed : 'No confirmado'
                     $tdIsRealized.textContent = event.is_realized == 1 ? 'Si' : 'No'
                     $tdUser.textContent = event.user_id
                     $aEdit.textContent = 'Editar'
                     $aEdit.setAttribute('href', `/manager/events/edit/${event.id}`)
-                    
                     $aRegisterBill.textContent = 'Registrar gasto'
                     $aRegisterBill.setAttribute('href', `/manager/bills/create/${event.id}`)
-
                     $aImages.textContent = 'Ver fotos'
                     $aImages.setAttribute('href', `/manager/images/watch/${event.id}`)
 
@@ -205,6 +208,7 @@
                     $tr.appendChild($tdEventDate)
                     $tr.appendChild($tdPrice)
                     $tr.appendChild($tdIsConfirmed)
+                    $tr.appendChild($tdConfirmedBy)
                     $tr.appendChild($tdIsRealized)
                     $tr.appendChild($tdUser)
                     $tdEdit.appendChild($aEdit)

@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\File;
 
@@ -25,15 +26,14 @@ class EventController extends Controller
     }
 
     public function update(Request $request, $eventId){
-        $eventId = $eventId;
-        if($request->is_confirmed=='1'){
-            $event = Event::find($eventId);
-            $event->event_date = $request->event_date;
-            $event->price = $request->price;
+        $event = Event::find($eventId);
+        $event->event_date = $request->event_date;
+        $event->price = $request->price;
+        if($request->is_confirmed == 1){
+            $event->is_confirmed = Auth::user()->id;
             $event->save();
             return redirect('/manager');
         }else{
-           
             return view('reasonEvent', compact('eventId'));
         } 
     }

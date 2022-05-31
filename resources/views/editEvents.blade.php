@@ -23,13 +23,13 @@
                     <div class="input-group">
                         <p>Evento: {{ $event->id }}</p><br>
                         <p>Fecha de evento:</p>
-                            <input class="input--style-2" type="text" name="event_date" value="{{ $event->event_date }}">
+                            <input class="input--style-2" type="date" name="event_date" value="{{ $event->event_date }}">
                     </div>
                     <div class="row row-space">
                         <div class="col-2">
                             <div class="input-group">
                                 <p>Costo del evento:</p>
-                                    <input class="input--style-2" type="text" name="price" value="{{ $event->price }}">
+                                    <input class="input--style-2" type="number" name="price" value="{{ $event->price }}">
                             </div>
                         </div>
                         <div class="col-2">
