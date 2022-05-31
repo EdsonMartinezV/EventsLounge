@@ -21,6 +21,12 @@
                       <h1>Salón de Eventos</h1>
                       <p>Conoce nuestro catálogo para conocer los paquetes y reserva la fecha para tus eventos importantes. </p>
                       <a href="/packs">Ver paquetes</a>
+                      @if(Auth::user()->isManager())
+                      <a href="/manager">Supervisor</a>
+                      @endif
+                      @if(Auth::user()->isEmployee())
+                      <a href="/employee">Empleado</a>
+                      @endif
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
