@@ -63,10 +63,6 @@ Route::get('/employee', function () {
 Route::get('/employee/showEvents', function () {
     return view('showEvents');
 });
-Route::get('/employee/showToPay', function () {
-    return view('showToPay');
-});
-
 
 /* ---- Manager Routes ---- */
 Route::get('/manager', function () {

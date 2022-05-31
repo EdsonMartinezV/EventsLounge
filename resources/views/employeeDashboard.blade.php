@@ -29,8 +29,6 @@
 			<a href="/events-realized">Agregar fotos realizados</a>
 			<a id="eventsPaid">Añadir abonos</a>
 			<a id="paids">Ver abonos</a>
-			<a id="toPayButton" href="employee/showToPay">Añadir Abonos</a>
-			<a id="toWatchButton" href="employee/showToPay">Ver Abonos</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
