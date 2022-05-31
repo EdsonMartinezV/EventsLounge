@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EventController;
@@ -74,6 +75,9 @@ Route::get('/manager', function () {
 Route::get('/resetPasswordFromManager', function () {
     return view('resetPasswordFromManager');
 });
+Route::get('/manager/createBills', function () {
+    return view('createBills');
+});
 
 Route::get('/manager/createuser', function () {return view('createUsers');});
 
@@ -104,9 +108,15 @@ Route::get('/manager/events/edit/{eventId}', [EventController::class, 'edit'])->
 
 Route::put('/manager/events/update/{eventId}', [EventController::class, 'update'])->name('manager.events.update');
 
+Route::put('/manager/events/reason/{id}', [EventController::class, 'reason'])->name('manager.events.reason');
+
 Route::get('/manager/paids', [PaidController::class, 'index'])->name('manager.paids');
 
-Route::put('/manager/events/reason/{id}', [EventController::class, 'reason'])->name('manager.events.reason');
+Route::get('/manager/bills', [BillController::class, 'index'])->name('manager.bills');
+
+Route::get('/manager/bills/create/{eventId}', [BillController::class, 'create'])->name('manager.bills.create');
+
+Route::post('/manager/bills/store/{eventId}', [BillController::class, 'store'])->name('manager.bills.store');
 
 /* ---- Rutas cliente ---- */
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
