@@ -33,7 +33,8 @@ Route::get('/register', function () {
 Route::get('/logout', [UserController::class, 'logout']);
 
 Route::get('/packs', function () {
-    return view('packs');
+    $packs = Pack::all()->where('is_active', true);
+    return view('packs', compact('packs'));
 });
 
 Route::get('/showimages', function () {return view('showImages');});
