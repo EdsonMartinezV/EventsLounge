@@ -13,6 +13,10 @@ class BillController extends Controller
         return $bills;
     }
 
+    public function create($eventId){
+        return view('createBills', compact('eventId'));
+    }
+
     public function store(Request $request, $eventId){
         $bill = new Bill();
         $bill->concept = $request->concept;
@@ -20,6 +24,6 @@ class BillController extends Controller
         $bill->date = $request->date;
         $bill->event_id = $eventId;
         $bill->save();
-        return redirect()->route('/manager');
+        return redirect()->route('manager');
     }
 }

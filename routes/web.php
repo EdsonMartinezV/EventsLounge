@@ -71,7 +71,7 @@ Route::get('/employee/showToPay', function () {
 /* ---- Manager Routes ---- */
 Route::get('/manager', function () {
     return view('managerDashboard');
-});
+})->name('manager');
 Route::get('/resetPasswordFromManager', function () {
     return view('resetPasswordFromManager');
 });

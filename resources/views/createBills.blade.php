@@ -16,22 +16,23 @@
     <div class="wrapper wrapper--w960">
         <div class="card card-2">
             <div class="card-body">
-                <center><h1>Crear gasto</h1></center>
-                <form>
+                <center><h1>Registrar gasto</h1></center>
+                <form method="POST" action="{{ route('manager.bills.store', $eventId) }}">
+                    @csrf
                     <p>ID</p>
                     <div class="input-group">
                         <p>Concepto</p>
-                        <input class="input--style-2" type="text" placeholder="Concepto" name="concepto">
+                        <input class="input--style-2" type="text" placeholder="Concepto" name="concept">
                     </div>
                     <div class="input-group">
                         <p>Monto</p>
-                        <input class="input--style-2" type="text" placeholder="Monto" name="monto">
+                        <input class="input--style-2" type="text" placeholder="Monto" name="amount">
                     </div>
                     <div class="input-group">
-                        <p>Evento</p>
-                        <input class="input--style-2" type="text" placeholder="Evento" name="Evento">
+                        <p>Fecha</p>
+                        <input class="input--style-2" type="date" placeholder="Fecha" name="date">
                     </br>
-                    <center><button class="btn btn--radius btn--green" type="submit">Guardar nuevo gasto</button></center>
+                    <center><button class="btn btn--radius btn--green" type="submit">Guardar gasto</button></center>
                 </form>
             </div>
         </div>
