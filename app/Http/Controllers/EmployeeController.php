@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Pack;
 use App\Models\Event;
 use App\Models\Image;
+use App\Models\Paid;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\File;
@@ -55,8 +56,25 @@ class EmployeeController extends Controller
 
     public function eventsPais(){
 
-        $bookings = Event::all();
+        $bookings= Event::where([['is_confirmed','=',1]])->get();
        
+        return $bookings->toJson();
+    }
+
+    public function addPaid($id){
+
+        $bookings= Event::where([['id','=',$id]])->get();
+        return $bookings->toJson();
+    }
+
+    public function savePaid(Request $request,$id){
+        $id = $id;
+        $paid = new Paid;
+        $paid->amount = $request->amount;
+        $paid->event_id = $id;
+        $paid->save();
+
+        $bookings= Event::where([['id','=',$id]])->get();
         return $bookings->toJson();
     }
 }

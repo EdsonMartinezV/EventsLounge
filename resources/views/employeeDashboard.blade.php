@@ -28,7 +28,7 @@
 			<a id="eventsButton">Listar eventos confirmados</a>
 			<a href="/events-realized">Agregar fotos realizados</a>
 			<a id="eventsPaid">Abonos</a>
-			<a id="eventsButton" href="employee/showEvents">Editar Eventos</a>
+			<a id="eventsButton">Editar Eventos</a>
 			<a id="toPayButton" href="employee/showToPay">Abonos</a>
 		</nav>
 		<label for="btn-menu">✖️</label>

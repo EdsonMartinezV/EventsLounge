@@ -31,4 +31,8 @@ class Event extends Model
     public function paids(){
         return $this->hasMany(Paid::class);
     }
+
+    public function bills(){
+        return $this->hasMany(Bill::class);
+    }
 }

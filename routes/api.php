@@ -25,5 +25,8 @@ Route::get('/events-confirmated',[EmployeeController::class, 'eventsConfirmated'
 
 Route::get('/events-paids',[EmployeeController::class, 'eventsPais'])->name('employee.Paids');
 
-Route::post('/events-images/{id}',[EmployeeController::class, 'eventsImages'])->name('employee.Images');
+Route::get('/add-paid/{id}',[EmployeeController::class, 'addPaid'])->name('add.Paid');
+
+Route::post('/save-paid/{id}',[EmployeeController::class, 'savePaid'])->name('save.Paid');
+
 
