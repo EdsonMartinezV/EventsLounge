@@ -75,6 +75,9 @@ Route::get('/manager', function () {
 Route::get('/resetPasswordFromManager', function () {
     return view('resetPasswordFromManager');
 });
+Route::get('/manager/createBills', function () {
+    return view('createBills');
+});
 
 Route::get('/manager/createuser', function () {return view('createUsers');});
 
