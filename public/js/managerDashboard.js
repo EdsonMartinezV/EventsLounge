@@ -146,7 +146,8 @@
                     $tdIsConfirmed = document.createElement('td'),
                     $tdIsRealized = document.createElement('td'),
                     $tdUser = document.createElement('td'),
-                    $tdEdit = document.createElement('td')
+                    $tdEdit = document.createElement('td'),
+                    $tdRegisterBill = document.createElement('td')
 
                 $tdId.textContent = 'ID'
                 $tdEventDate.textContent = 'Fecha del evento'
@@ -155,6 +156,7 @@
                 $tdIsRealized.textContent = 'Realizado'
                 $tdUser.textContent = 'Usuario'
                 $tdEdit.textContent = 'Editar'
+                $tdRegisterBill.textContent = 'Registrar gasto'
 
                 $fragment.appendChild($tdId)
                 $fragment.appendChild($tdEventDate)
@@ -163,6 +165,7 @@
                 $fragment.appendChild($tdIsRealized)
                 $fragment.appendChild($tdUser)
                 $fragment.appendChild($tdEdit)
+                $fragment.appendChild($tdRegisterBill)
                 $mainTableHeadRow.appendChild($fragment)
 
                 events.forEach((event) => {
@@ -174,7 +177,9 @@
                         $tdIsRealized = document.createElement('td'),
                         $tdUser = document.createElement('td'),
                         $tdEdit = document.createElement('td'),
-                        $aEdit = document.createElement('a')
+                        $aEdit = document.createElement('a'),
+                        $tdRegisterBill = document.createElement('td'),
+                        $aRegisterBill = document.createElement('a')
 
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
@@ -184,6 +189,8 @@
                     $tdUser.textContent = event.user_id
                     $aEdit.textContent = 'Editar'
                     $aEdit.setAttribute('href', `/manager/events/edit/${event.id}`)
+                    $aRegisterBill.textContent = 'Registrar gasto'
+                    $aRegisterBill.setAttribute('href', `/manager/bills/create/${event.id}`)
 
                     $tr.appendChild($tdId)
                     $tr.appendChild($tdEventDate)
@@ -193,6 +200,8 @@
                     $tr.appendChild($tdUser)
                     $tdEdit.appendChild($aEdit)
                     $tr.appendChild($tdEdit)
+                    $tdRegisterBill.appendChild($aRegisterBill)
+                    $tr.appendChild($tdRegisterBill)
                     $mainTableBody.appendChild($tr)
                 })
                 console.log(events);
@@ -247,6 +256,57 @@
     })
 
     $billsButton.addEventListener('click', () => {
-        
+        fetch('/manager/bills')
+            .then((res) => res.ok ? res.json() : Promise.reject(res))
+            .then((bills) => {
+                $tableTitle.innerText = 'Gastos';
+                $mainTableHeadRow.innerHTML = ''
+                $mainTableBody.innerHTML = ''
+                $createLink.textContent = '';
+
+                const $tdId = document.createElement('td'),
+                    $tdConcept = document.createElement('td',),
+                    $tdAmount = document.createElement('td'),
+                    $tdDate = document.createElement('td'),
+                    $tdEvent = document.createElement('td')
+                    
+                $tdId.textContent = 'ID'
+                $tdConcept.textContent = 'Concepto'
+                $tdAmount.textContent = 'Monto'
+                $tdDate.textContent = 'Fecha'
+                $tdEvent.textContent = 'Evento'
+                
+                $fragment.appendChild($tdId)
+                $fragment.appendChild($tdConcept)
+                $fragment.appendChild($tdAmount)
+                $fragment.appendChild($tdDate)
+                $fragment.appendChild($tdEvent)
+                $mainTableHeadRow.appendChild($fragment)
+
+                bills.forEach((pack) => {
+                    const $tr = document.createElement('tr'),
+                        $tdId = document.createElement('td'),
+                        $tdConcept = document.createElement('td'),
+                        $tdAmount = document.createElement('td'),
+                        $tdDate = document.createElement('td'),
+                        $tdEvent = document.createElement('td')
+
+                    $tdId.textContent = pack.id
+                    $tdConcept.textContent = pack.concept
+                    $tdAmount.textContent = `$ ${pack.amount}`
+                    $tdDate.textContent = pack.date
+                    $tdEvent.textContent = pack.event_id
+
+                    $tr.appendChild($tdId)
+                    $tr.appendChild($tdConcept)
+                    $tr.appendChild($tdAmount)
+                    $tr.appendChild($tdDate)
+                    $tr.appendChild($tdEvent)
+                    $mainTableBody.appendChild($tr)
+                })
+            }).catch((err) => {
+                console.error(`Error ${err.status}: ${err.statusText}`);
+                $main.innerHTML = `Error ${err.status}: ${err.statusText}`
+            })
     })
 })()
