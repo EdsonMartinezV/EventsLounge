@@ -25,10 +25,10 @@
 <div class="container-menu">
 	<div class="cont-menu">
 		<nav>
-			<a id="eventsButton">Listar eventos confirmados</a>
-			<a href="/events-realized">Agregar fotos realizados</a>
-			<a id="eventsPaid">Añadir abonos</a>
-			<a id="paids">Ver abonos</a>
+			<a id="eventsButton"><img src="/images/listar.png" width="30px"> Listar eventos confirmados</a>
+			<a href="/events-realized"><img src="/images/foto.png" width="30px"> Agregar fotos realizados</a>
+			<a id="eventsPaid"><img src="/images/pago.png" width="30px">Añadir abonos</a>
+			<a id="paids"><img src="/images/bills.png" width="30px">Ver abonos</a>
 		</nav>
 		<label for="btn-menu">✖️</label>
 	</div>
