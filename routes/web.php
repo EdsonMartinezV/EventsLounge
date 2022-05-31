@@ -8,7 +8,7 @@ use App\Http\Controllers\PackController;
 use App\Http\Controllers\PaidController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
-
+use App\Models\Pack;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,8 @@ use App\Http\Controllers\EmployeeController;
 */
 
 Route::get('/', function () {
-    return view('packs');
+    $packs = Pack::all()->where('is_active', true);
+    return view('packs', compact('packs'));
 });
 
 Route::get('/register', function () {

@@ -15,41 +15,19 @@
     <center><h1>PAQUETES</h1></center>
     <section id="why-us" class="why-us">
         <div class="row">
-          <div class="col-lg-4">
-            <div class="box">
-              <span>Paquete 01</span>
-              <h4>Informacion</h4>
-              <p>Precio del paquete</p>
-              @if(Auth::check())
-              <a class="testbutton" href="/booking">Reservar</a>
-              @endif
+          @foreach ($packs as $pack)
+            <div class="col-lg-4">
+              <div class="box">
+                <span>{{ $pack->name }}</span>
+                <h4>Informacion</h4>
+                <p>$ {{ $pack->price }}</p>
+                @if(Auth::check())
+                  <a class="testbutton" href="/booking">Reservar</a>
+                @endif
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>Paquete 02</span>
-              <h4>Información</h4>
-              <p>Precio del paquete</p>
-              @if(Auth::check())
-              <a class="testbutton" href="/booking">Reservar</a>
-              @endif
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>Paquete 03</span>
-              <h4>Información</h4>
-              <p>Precio del paquete</p>
-              @if(Auth::check())
-              <a class="testbutton" href="/booking">Reservar</a>
-              @endif
-            </div>
-          </div>
-
+          @endforeach
         </div>
-
       </div>
     </section>
 </body>
