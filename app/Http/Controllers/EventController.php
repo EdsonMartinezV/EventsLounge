@@ -92,9 +92,29 @@ class EventController extends Controller
         $id = $id;
         $images= Image::join('events','images.event_id', '=', 'events.id')
         -> where ('images.event_id',$id)
+        ->select('images.id','images.url','images.event_id')
         ->get();
 
         return view('updateImage', compact('images'));
+    }
+
+    public function changeImages(Request $request,$id){
+
+        $image = Image::select('url')->find($id);
+        
+       
+        unlink(public_path($image['url']));
+        $file = $request->file('imagen'); 
+        $originalname = time().'_'.$file->getClientOriginalName();
+        $file->storeAs('public/events',$originalname);
+        
+        $request->imagen = '/storage/events/'.$originalname;
+        
+        Image::where('id',$id)->update(['url'=>$request->imagen]);    
+
+        $imagenes = Image::where('id', $id)->get(['id','url','event_id']);
+
+        return redirect()->route('manager.events.images.update',$request->event);
     }
 
 }

@@ -30,17 +30,28 @@
                         @foreach ($images as $image)                                         
                             <a href={{$image->url}}> Ver imagen {{$count+=1}}</a><br>
                             
-                                <a href="" class="btn btn-info">Cambiar imagen</a>
-                                 <form action="}" class="form-horizontal" method="post">
-                                  @csrf
-                                        <input id="nombre" name="nombre" type="text" value="{{$image->event_id}}" class="form-control" hidden>
-                                  @method('DELETE')
-                              <button type="submit" class="btn btn-danger">Borrar</button>
-                              </form>
-                              
-                            @endforeach
+                            <form action="/manager/images/change/{{$image->id}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method('put')
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlFile1">Agregue su nueva imagen</label>
+                                            <input type="file" class="form-control-file" id="imagen" name="imagen"
+                                            accept="image/*" required>
+                                        </div>
+                                    </div>
+                                    <input id="nombre" name="event" type="text" value="{{$image->event_id}}" class="form-control" hidden> 
+                                    <button type="submit" class="btn btn-primary">Cambiar imagen</button>
+                            </form>
+                            <form action="/manager/images/delete/{{$image->id}}" class="form-horizontal" method="post">
+                                @csrf
+                                    <input id="nombre" name="nombre" type="text" value="{{$image->event_id}}" class="form-control" hidden>
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Borrar</button>
+                            </form> 
+                        @endforeach
                     @endif
-                    </br>         
+                </br>         
             </div>
             <a href="/manager" class="btn btn-success">Regresar al principal</a>
         <div>
