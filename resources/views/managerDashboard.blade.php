@@ -27,6 +27,7 @@
 		    	<a id="eventsButton"><img src="/images/evento.png" width="30px"> Ver Eventos</a>
 		    	<a id="paidsButton"><img src="/images/pago.png" width="30px"> Ver abonos</a>
 				<a id="billsButton"><img src="/images/bills.png" width="30px"> Ver gastos</a>
+				<a id="imagesButton"><img src="" width="30px"> Modificar Imagenes</a>
 		    </nav>
 		    <label for="btn-menu">✖️</label>
 	    </div>
@@ -48,5 +49,6 @@
 		<a id="createLink"></a>
     </main>
     <script src="{{ asset('js/managerDashboard.js') }}"></script>
+	<script src="{{ asset('js/managerUpdateImages.js') }}"></script>
 </body>
 </html>

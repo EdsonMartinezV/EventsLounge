@@ -63,4 +63,28 @@ class EventController extends Controller
 
         return view('imageView', compact('images'));
     }
+
+    public function showUpdateImages(){
+        $collection = collect();
+
+        $employee= Event::join('users','events.user_id', '=', 'users.id')
+        -> where ([['users.role','=','employee']])
+        ->select('events.id','events.event_date','events.price','users.id as user_id')
+        ->get();
+
+        
+        foreach ($employee as $a)
+            $collection->push($a);
+
+        $manager= Event::join('users','events.user_id', '=', 'users.id')
+        ->where ('users.id','=',Auth::user()->id)
+        ->select('events.id','events.event_date','events.price','users.id as user_id')
+        ->get();
+
+        foreach ($manager as $b)
+            $collection->push($b);
+        
+      
+        return $collection->toJson();
+    }
 }
