@@ -83,7 +83,6 @@ Route::get('/manager/createpack', function () {return view('createPack');});
 
 Route::get('/manager/editEvents', function () {return view('editEvents');});
 
-
 Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
 
 Route::get('/manager/users/create', [UserController::class, 'create'])->name('manager.users.create');
@@ -119,6 +118,8 @@ Route::post('/manager/bills/store/{eventId}', [BillController::class, 'store'])-
 Route::get('/manager/images/watch/{eventId}', [EventController::class, 'images'])->name('manager.events.images');
 
 Route::get('/manager/images/show', [EventController::class, 'showUpdateImages'])->name('manager.events.images.show');
+
+Route::get('/manager/images/update/{id}', [EventController::class, 'UpdateImages'])->name('manager.events.images.update');
 
 /* ---- Rutas cliente ---- */
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');

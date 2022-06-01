@@ -87,4 +87,14 @@ class EventController extends Controller
       
         return $collection->toJson();
     }
+
+    public function updateImages( $id){
+        $id = $id;
+        $images= Image::join('events','images.event_id', '=', 'events.id')
+        -> where ('images.event_id',$id)
+        ->get();
+
+        return view('updateImage', compact('images'));
+    }
+
 }
