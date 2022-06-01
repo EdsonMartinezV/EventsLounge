@@ -49,7 +49,7 @@ $imagesButton.addEventListener('click', () => {
                 $tdPrice.textContent = `$ ${event.price}`
                 $tdUser.textContent = event.user_id
                 $aImages.textContent = 'Editar'
-                $aImages.setAttribute('href', `/manager/images/watch/${event.id}`)
+                $aImages.setAttribute('href', `/manager/images/update/${event.id}`)
 
                 $tr.appendChild($tdId)
                 $tr.appendChild($tdEventDate)
