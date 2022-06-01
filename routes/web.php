@@ -123,7 +123,7 @@ Route::get('/manager/images/update/{id}', [EventController::class, 'UpdateImages
 
 Route::put('/manager/images/change/{id}',[EventController::class, 'changeImages'])->name('manager.events.images.change');
 
-Route::delete('/manager/images/delete/{id}',[EventController::class, 'deleteImages']);
+Route::delete('/manager/images/delete/{id}',[EventController::class, 'deleteImages'])->name('manager.events.images.change');
 
 /* ---- Rutas cliente ---- */
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');

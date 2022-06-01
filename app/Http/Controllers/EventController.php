@@ -117,4 +117,17 @@ class EventController extends Controller
         return redirect()->route('manager.events.images.update',$request->event);
     }
 
+    public function deleteImages(Request $request,$id){
+        
+        $imagenes = Image::select('url')->find($id);
+
+        unlink(public_path($imagenes['url']));
+        
+        Image::where('id',$id)->delete();
+
+        $imagenes = Image::where('id', $id)->get(['id','url','event_id']);
+
+        return redirect()->route('manager.events.images.update',$request->event);
+    }
+
 }

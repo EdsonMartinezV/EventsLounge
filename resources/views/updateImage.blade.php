@@ -45,7 +45,7 @@
                             </form>
                             <form action="/manager/images/delete/{{$image->id}}" class="form-horizontal" method="post">
                                 @csrf
-                                    <input id="nombre" name="nombre" type="text" value="{{$image->event_id}}" class="form-control" hidden>
+                                    <input id="nombre" name="event" type="text" value="{{$image->event_id}}" class="form-control" hidden>
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Borrar</button>
                             </form> 
