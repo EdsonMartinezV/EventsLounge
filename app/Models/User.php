@@ -52,7 +52,11 @@ class User extends Authenticatable
         return $this->role === 'manager';
      }
 
-     public function isEmployee() {
+    public function isEmployee() {
         return $this->role === 'employee';
-     }
+    }
+
+    public function images(){
+        return $this->hasMany(Image::class,'user_id','id');
+    }
 }

@@ -15,4 +15,8 @@ class Image extends Model
     public function events(){
         return $this->belongsTo(Event::class,'event_id','id');
     }
+
+    public function users(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
 }

@@ -38,7 +38,7 @@
         e.preventDefault();
         //se limpia lo que trae la tabla
         var Table = document.getElementById("bookings");
-            //Table.innerHTML = "";
+            Table.innerHTML = "";
        const $fragment = document.createDocumentFragment()
 
         fetch("/my-bookings")
@@ -62,13 +62,20 @@
                 const $td5 = document.createElement('td')
                 const $td6 = document.createElement('td')
                 const $td7 = document.createElement('td')
+                const $td8 = document.createElement('td')
+                const $td9 = document.createElement('td')
 
                 const $buttonUpdate = document.createElement('button')
                 const $buttonDelete = document.createElement('button')
+                const $buttonAddImage = document.createElement('button')
+                const $buttonDeleteImage = document.createElement('button')
+                
                
 
-                $buttonUpdate.textContent = "Actualizar"
-                $buttonDelete.textContent = "Eliminar"
+                $buttonUpdate.textContent = "Actualizar evento"
+                $buttonDelete.textContent = "Eliminar evento"
+                $buttonDeleteImage.textContent = "Eliminar imagen"
+                $buttonAddImage.textContent = "Añadir imagen"
 
                 $td1.textContent = event.id
                 $td1.id = 'id_event'
@@ -87,9 +94,8 @@
                 
                 $tr.appendChild($td4)
                 $tr.appendChild($td7)
+                
                
-               
-
                 if(event.is_confirmed == '0'){
                     $td5.appendChild($buttonUpdate)
                     $tr.appendChild($td5)
@@ -104,6 +110,13 @@
                     $td6.textContent = 'confirmado'
                     $tr.appendChild($td6)
                 }
+
+                $td8.appendChild($buttonDeleteImage)
+                $tr.appendChild($td8)
+
+                $td9.appendChild($buttonAddImage)
+                $tr.appendChild($td9)
+
                 
                 $fragment.appendChild($tr)
                 
@@ -229,10 +242,6 @@
             });
                 
             })
-            
-           
-
-      
             });
             //cierra segundo listener
         })
@@ -243,9 +252,7 @@
             console.log(err);
         });
 });
-    
-    
-        
+       
     </script>
 </body>
 
