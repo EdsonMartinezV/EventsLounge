@@ -114,8 +114,8 @@ class ClientController extends Controller
         $event->event_date = $request->date;
         $event->price = $pack->price;
         $event->user_id = Auth::user()->id;
-        $event->packs()->attach($pack->id);
         $event->save();
-        return redirect()->route('client.principal');
+        $event->packs()->attach($pack->id);
+        return redirect()->route('bookings');
     }
 }

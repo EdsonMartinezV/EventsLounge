@@ -41,7 +41,7 @@ Route::get('/showimages', function () {return view('showImages');});
 
 Route::get('/mybookings', function () {
     return view('bookings');
-});
+})->name('bookings');
 Route::get('/booking/{packId}', function ($packId) {
     return view('bookingForm', compact('packId'));
 });
