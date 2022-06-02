@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class ClientController extends Controller
 {
     public function myBookings(Request $request){
-        
+
         //$bookings = User::with('events')->where('id',Auth::user()->id)->get();
         $bookings = Event::where('user_id',Auth::user()->id)->get();
     
@@ -108,9 +108,14 @@ class ClientController extends Controller
         return redirect()->route('client.add.image',$idEvent);
     }
 
-    public function newBooking(Request $request,$id){
-        dd($id);
-
+    public function newBooking(Request $request, $packId){
+        $pack = Pack::find($packId);
+        $event = new Event;
+        $event->event_date = $request->date;
+        $event->price = $pack->price;
+        $event->user_id = Auth::user()->id;
+        $event->packs()->attach($pack->id);
+        $event->save();
         return redirect()->route('client.principal');
     }
 }

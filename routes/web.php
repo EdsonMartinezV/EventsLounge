@@ -42,8 +42,8 @@ Route::get('/showimages', function () {return view('showImages');});
 Route::get('/mybookings', function () {
     return view('bookings');
 });
-Route::get('/booking/{id}', function ($id) {
-    return view('bookingForm', compact('id'));
+Route::get('/booking/{packId}', function ($packId) {
+    return view('bookingForm', compact('packId'));
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -113,7 +113,7 @@ Route::delete('/manager/images/delete/{id}',[EventController::class, 'deleteImag
 
 /* ---- Rutas cliente ---- */
 
-Route::post('/new-booking/{id}',[ClientController::class, 'newBooking'])->name('client.new.Booking');
+Route::post('/new-booking/{packId}',[ClientController::class, 'newBooking'])->name('client.new.Booking');
 
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
 
