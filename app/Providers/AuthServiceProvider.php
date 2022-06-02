@@ -28,6 +28,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('viewModelTable', [UserPolicy::class, 'viewModelTable']);
+        Gate::define('managerAction', [UserPolicy::class, 'managerAction']);
     }
 }

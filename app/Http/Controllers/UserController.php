@@ -56,17 +56,25 @@ class UserController extends Controller
        
     }
 
+    public function managerDashboard(){
+        $this->authorize('managerAction');
+        return view('managerDashboard');
+    }
+
     public function index(){
+        $this->authorize('managerAction');
         $users = User::all();
         $users->toJson();
         return $users;
     }
 
     public function create(){
+        $this->authorize('managerAction');
         return view('createUsers');
     }
 
     public function store(Request $request){
+        $this->authorize('managerAction');
         $user = new User();
         $user->name = $request->name;
         $user->surname = $request->surname;
@@ -78,11 +86,13 @@ class UserController extends Controller
     }
 
     public function resetPassword($userId){
+        $this->authorize('managerAction');
         $user = User::find($userId);
         return view('resetPasswordFromManager', compact('user'));
     }
 
     public function storePassword(Request $request, $userId){
+        $this->authorize('managerAction');
         $user = User::find($userId);
         $user->password = Hash::make($request->password);
         $user->save();
