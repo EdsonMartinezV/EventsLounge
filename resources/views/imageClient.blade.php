@@ -30,7 +30,7 @@
                         @foreach ($images as $image)                                         
                             <a href={{$image->url}}> Ver imagen {{$count+=1}}</a><br>
                             
-                            <form action="/events-images/{{$image->id}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                            <form action="/update-image/{{$image->id}}" class="form-horizontal" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                     <div class="form-group">

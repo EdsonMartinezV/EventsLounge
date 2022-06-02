@@ -88,4 +88,23 @@ class ClientController extends Controller
 
         return redirect()->route('client.add.image',$idEvent);
     }
+
+    public function changeImage(Request $request, $id){
+        $idEvent = $request->event;
+        $image = Image::select('url')->find($id);
+        
+       
+        unlink(public_path($image['url']));
+        $file = $request->file('imagen'); 
+        $originalname = time().'_'.$file->getClientOriginalName();
+        $file->storeAs('public/events',$originalname);
+        
+        $request->imagen = '/storage/events/'.$originalname;
+        
+        Image::where('id',$id)->update(['url'=>$request->imagen]);    
+
+        $imagenes = Image::where('id', $id)->get(['id','url','event_id']);;
+
+        return redirect()->route('client.add.image',$idEvent);
+    }
 }
