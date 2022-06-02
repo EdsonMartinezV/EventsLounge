@@ -193,7 +193,7 @@
                     $tdId.textContent = event.id
                     $tdEventDate.textContent = event.event_date
                     $tdPrice.textContent = `$ ${event.price}`
-                    $tdIsConfirmed.textContent = event.is_confirmed == 1 ? 'Si' : 'No'
+                    $tdIsConfirmed.textContent = event.is_confirmed > 0 ? 'Si' : 'No'
                     $tdConfirmedBy.textContent = event.is_confirmed > 0 ? event.is_confirmed : 'No confirmado'
                     $tdIsRealized.textContent = event.is_realized == 1 ? 'Si' : 'No'
                     $tdUser.textContent = event.user_id
