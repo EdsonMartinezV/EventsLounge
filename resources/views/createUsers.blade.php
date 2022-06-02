@@ -40,11 +40,11 @@
                             </div>
                             <div class="col-2">
                                 <div>
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Rol de usuario" name="role">
-                                    <select class="form-control" name="role" id="exampleFormControlSelect1">
-                                    <option value="supervisor">Cliente</option>
-                                    <option value="manager">Empleado</option>
-                                    <option value="client">Gerente</option>
+                                    <label class="input--style-2 js-datepicker" for="role">Rol</label>
+                                    <select class="form-control" name="role" id="role">
+                                        <option value="client">Cliente</option>
+                                        <option value="employee">Empleado</option>
+                                        <option value="manager">Gerente</option>
                                   </select>
                                 </div>
                             </div>
