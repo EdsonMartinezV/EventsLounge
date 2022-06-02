@@ -24,7 +24,7 @@ use App\Models\Pack;
 Route::get('/', function () {
     $packs = Pack::all()->where('is_active', true);
     return view('packs', compact('packs'));
-});
+})->name('client.principal');
 
 Route::get('/register', function () {
     return view('register');
@@ -42,8 +42,8 @@ Route::get('/showimages', function () {return view('showImages');});
 Route::get('/mybookings', function () {
     return view('bookings');
 });
-Route::get('/booking', function () {
-    return view('bookingForm');
+Route::get('/booking/{id}', function ($id) {
+    return view('bookingForm', compact('id'));
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -59,9 +59,12 @@ Route::post('/validate',[UserController::class, 'validateUser'])->name('user.val
 Route::post('/register-user',[UserController::class, 'registerUser'])->name('user.register');
 
 /* ---- Employee Routes ---- */
-Route::get('/employee', [EmployeeController::class, 'dashboard']);
-
-Route::get('/employee/showEvents', [EmployeeController::class, 'showEvents']);
+Route::get('/employee', function () {
+    return view('employeeDashboard');
+});
+Route::get('/employee/showEvents', function () {
+    return view('showEvents');
+});
 
 /* ---- Manager Routes ---- */
 Route::get('/manager', [UserController::class, 'managerDashboard'])->name('manager');
@@ -110,7 +113,7 @@ Route::delete('/manager/images/delete/{id}',[EventController::class, 'deleteImag
 
 /* ---- Rutas cliente ---- */
 
-
+Route::post('/new-booking/{id}',[ClientController::class, 'newBooking'])->name('client.new.Booking');
 
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
 

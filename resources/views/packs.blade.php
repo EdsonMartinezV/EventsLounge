@@ -22,7 +22,7 @@
                 <h4>Informacion</h4>
                 <p>$ {{ $pack->price }}</p>
                 @if(Auth::check())
-                  <a class="testbutton" href="/booking">Reservar</a>
+                  <a class="testbutton" href="/booking/{{$pack->id}}">Reservar</a>
                 @endif
               </div>
             </div>

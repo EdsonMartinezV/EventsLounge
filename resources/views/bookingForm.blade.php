@@ -17,7 +17,8 @@
             <div class="card card-2">
                 <div class="card-body">
                 <center><h1>Haz tu reserva</h1></center>
-                    <form method="POST" action="">
+                    <form method="POST" action="/new-booking/{{$id}}">
+                        @csrf
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
