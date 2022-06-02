@@ -20,14 +20,17 @@
                 <center><h1>Imagenes del Evento</h1></center>
                     @foreach ($images as $image)
                     @endforeach
+                    @php
+                        $count=0;
+                        @endphp
                     @if (!empty($image))
+                    @foreach ($images as $image)
                         <div class="input-group">
                             <center><h2>Evento: {{ $image->event_id}}</h2></center>
                         </div>
-                        @php
-                        $count=0;
-                        @endphp
+                        
                             <a href={{$image->url}}> Ver imagen {{$count+=1}}</a><br>
+                            @endforeach
                     @endif
                     </br>         
             </div>
