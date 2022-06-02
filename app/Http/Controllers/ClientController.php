@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Pack;
 use App\Models\Event;
+use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
@@ -41,5 +42,15 @@ class ClientController extends Controller
         $bookings = Event::where('id',$id)->get();
        
         return $bookings->toJson();
+    }
+
+    public function addImage(Request $request, $id){
+        
+        $images= Image::join('events','images.event_id', '=', 'events.id')
+        -> where ('images.event_id',$id)
+        ->select('images.id','images.url','images.event_id')
+        ->get();
+
+        return view('imageClient', compact('images'));
     }
 }
