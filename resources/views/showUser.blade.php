@@ -11,7 +11,7 @@
     <title>Usuario</title>
 </head>
 <body>
-    @include('managerDashboard')
+    @include('managerHeader')
     <a class="testbutton" href="/booking">Crear Usuario</a>
     <main>
         <d>Lista de usuarios</d>
