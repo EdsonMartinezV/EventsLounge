@@ -134,6 +134,7 @@ Route::get('/show-booking/{id}',[ClientController::class, 'showBooking'])->name(
 
 Route::put('/update-booking/{id}',[ClientController::class, 'updateBooking'])->name('update.booking');
 
+Route::get('/add-image/{id}',[ClientController::class, 'addImage'])->name('add.image');
 
 //rutas empleado
 Route::get('/events-realized',[EmployeeController::class, 'eventsRealized'])->name('employee.realized');
