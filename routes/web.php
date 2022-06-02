@@ -134,6 +134,15 @@ Route::get('/show-booking/{id}',[ClientController::class, 'showBooking'])->name(
 
 Route::put('/update-booking/{id}',[ClientController::class, 'updateBooking'])->name('update.booking');
 
+Route::get('/add-image/{id}',[ClientController::class, 'addImage'])->name('client.add.image');
+
+Route::get('/update-image/{id}',[ClientController::class, 'UpdateImage'])->name('cliente.update.image');
+
+Route::post('/add-new-image/{id}',[ClientController::class, 'addNewImage'])->name('client.add.new.image');
+
+Route::delete('/delete-image/{id}',[ClientController::class, 'deleteImage'])->name('client.delete.image');
+
+Route::put('/update-image/{id}',[ClientController::class, 'changeImage'])->name('client.change.image');
 
 //rutas empleado
 Route::get('/events-realized',[EmployeeController::class, 'eventsRealized'])->name('employee.realized');

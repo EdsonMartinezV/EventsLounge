@@ -64,18 +64,24 @@
                 const $td7 = document.createElement('td')
                 const $td8 = document.createElement('td')
                 const $td9 = document.createElement('td')
+                const $td10 = document.createElement('td')
 
                 const $buttonUpdate = document.createElement('button')
                 const $buttonDelete = document.createElement('button')
-                const $buttonAddImage = document.createElement('button')
-                const $buttonDeleteImage = document.createElement('button')
+                const $buttonUpdateImage = document.createElement('a')
+                const $form = document.createElement('form')
+                const $inputImage = document.createElement('input')
+
+
+
                 
-               
 
                 $buttonUpdate.textContent = "Actualizar evento"
                 $buttonDelete.textContent = "Eliminar evento"
-                $buttonDeleteImage.textContent = "Eliminar imagen"
-                $buttonAddImage.textContent = "Añadir imagen"
+
+                $buttonUpdateImage.textContent = "Actualizar Imagen"
+                
+                $buttonUpdateImage.href = `/add-image/${event.id}`
 
                 $td1.textContent = event.id
                 $td1.id = 'id_event'
@@ -111,11 +117,10 @@
                     $tr.appendChild($td6)
                 }
 
-                $td8.appendChild($buttonDeleteImage)
-                $tr.appendChild($td8)
 
-                $td9.appendChild($buttonAddImage)
+                $td9.appendChild($buttonUpdateImage)
                 $tr.appendChild($td9)
+
 
                 
                 $fragment.appendChild($tr)
@@ -158,6 +163,8 @@
         });
         });
         //cierra primer listener
+  ;
+        
         
         var dataupdate = {
                     id_event: event.id
