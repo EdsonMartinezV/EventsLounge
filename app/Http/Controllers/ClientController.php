@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class ClientController extends Controller
 {
     public function myBookings(Request $request){
-
+        
         //$bookings = User::with('events')->where('id',Auth::user()->id)->get();
         $bookings = Event::where('user_id',Auth::user()->id)->get();
     

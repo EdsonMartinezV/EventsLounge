@@ -24,12 +24,12 @@ class UserController extends Controller
         }
 
         //verifica si no existe esa contraseña
-        else if($request->password != $user->password ){
+        else if(!Hash::check($request->password, $user->password)){
             return response()->json(['error'=>'Contraseña incorrecta']);
         }
 
         //valida y autentica usuario
-        else if($request->password == $user->password){
+        else if(Hash::check($request->password, $user->password)){
             Auth::login($user);
             return response()->json(['success'=>'Ingreso exitoso']);
         }
@@ -46,7 +46,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->surname = $request->lastname;
         $user->email = $request->email;
-        $user->password= $request->password;
+        $user->password= Hash::make($request->password);
         $user->role= 'client';
         $user->save();
 
