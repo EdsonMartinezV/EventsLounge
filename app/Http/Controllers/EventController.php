@@ -15,17 +15,20 @@ use Illuminate\Support\File;
 class EventController extends Controller
 {
     public function index(){
+        $this->authorize('managerAction');
         $events = Event::all();
         $events->toJson();
         return $events;
     }
 
     public function edit($eventId){
+        $this->authorize('managerAction');
         $event = Event::find($eventId);
         return view('editEvents', compact('event'));
     }
 
     public function update(Request $request, $eventId){
+        $this->authorize('managerAction');
         $event = Event::find($eventId);
         $event->event_date = $request->event_date;
         $event->price = $request->price;
@@ -39,6 +42,7 @@ class EventController extends Controller
     }
 
     public function reason(Request $request, $id){
+        $this->authorize('managerAction');
         $id = $id;
 
             $event = Event::find($id);
@@ -56,6 +60,7 @@ class EventController extends Controller
     }
 
     public function images( $id){
+        $this->authorize('managerAction');
         $id = $id;
         $images= Image::join('events','images.event_id', '=', 'events.id')
         -> where ('images.event_id',$id)
@@ -65,6 +70,7 @@ class EventController extends Controller
     }
 
     public function showUpdateImages(){
+        $this->authorize('managerAction');
         $collection = collect();
 
         $employee= Event::join('users','events.user_id', '=', 'users.id')
@@ -89,6 +95,7 @@ class EventController extends Controller
     }
 
     public function updateImages( $id){
+        $this->authorize('managerAction');
         $id = $id;
         $images= Image::join('events','images.event_id', '=', 'events.id')
         -> where ('images.event_id',$id)
@@ -99,7 +106,7 @@ class EventController extends Controller
     }
 
     public function changeImages(Request $request,$id){
-
+        $this->authorize('managerAction');
         $image = Image::select('url')->find($id);
         
        
@@ -118,7 +125,7 @@ class EventController extends Controller
     }
 
     public function deleteImages(Request $request,$id){
-        
+        $this->authorize('managerAction');
         $imagenes = Image::select('url')->find($id);
 
         unlink(public_path($imagenes['url']));
