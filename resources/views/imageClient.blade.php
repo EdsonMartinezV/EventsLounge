@@ -30,7 +30,7 @@
                         @foreach ($images as $image)                                         
                             <a href={{$image->url}}> Ver imagen {{$count+=1}}</a><br>
                             
-                            <form action="/manager/images/change/{{$image->id}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                            <form action="/events-images/{{$image->id}}" class="form-horizontal" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                     <div class="form-group">
@@ -43,17 +43,37 @@
                                     <input id="nombre" name="event" type="text" value="{{$image->event_id}}" class="form-control" hidden> 
                                     <button type="submit" class="btn btn-primary">Cambiar imagen</button>
                             </form>
+
+                            @if($image->user_id == Auth::user()->id)
                             <form action="/manager/images/delete/{{$image->id}}" class="form-horizontal" method="post">
                                 @csrf
                                     <input id="nombre" name="event" type="text" value="{{$image->event_id}}" class="form-control" hidden>
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Borrar</button>
                             </form> 
+                            @endif 
+                            @if($image->user_id != Auth::user()->id)
+                                <p>Usted no puede eliminar esta foto</p>
+                            @endif
+                            
                         @endforeach
                     @endif
+                    <form action="/add-new-image/{{$id}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('post')
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Agregue su  imagen</label>
+                                    <input type="file" class="form-control-file" id="imagen[]" name="images[]" multiple
+                                    accept="image/*" required>
+                                </div>
+                            </div>
+                            <input id="nombre" name="event" type="text" value="{{$id}}" class="form-control" hidden> 
+                            <button type="submit" class="btn btn-success">Añadir imagen</button>
+                    </form>
                 </br>         
             </div>
-            <a href="/manager" class="btn btn-success">Regresar al principal</a>
+            <a href="/mybookings" class="btn btn-success">Regresar al principal</a>
         <div>
     </div>
 </body>
