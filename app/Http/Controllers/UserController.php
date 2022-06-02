@@ -56,6 +56,11 @@ class UserController extends Controller
        
     }
 
+    public function managerDashboard(){
+        $this->authorize('managerAction');
+        return view('managerDashboard');
+    }
+
     public function index(){
         $users = User::all();
         $users->toJson();
