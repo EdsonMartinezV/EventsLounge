@@ -17,28 +17,13 @@
             <div class="card card-2">
                 <div class="card-body">
                 <center><h1>Haz tu reserva</h1></center>
-                    <form method="POST">
+                    <form method="POST" action="/new-booking/{{$id}}">
+                        @csrf
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Fecha de reserva(YYY/MM/DD)" name="birthday">
+                                    <input class="input--style-2 js-datepicker" type="date" placeholder="Fecha de reserva(YYY/MM/DD)" name="birthday">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Comentarios" name="comments">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-            <label for="image">Sube una imagen</label>
-            <input type="file" name="image" id="image" class="form-control">
-        </div><br>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-2" type="text" placeholder="Número de invitados" name="res_code">
                                 </div>
                             </div>
                         </div>

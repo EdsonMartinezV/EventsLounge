@@ -107,4 +107,10 @@ class ClientController extends Controller
 
         return redirect()->route('client.add.image',$idEvent);
     }
+
+    public function newBooking(Request $request,$id){
+        dd($id);
+
+        return redirect()->route('client.principal');
+    }
 }
