@@ -67,21 +67,7 @@ Route::get('/employee/showEvents', function () {
 });
 
 /* ---- Manager Routes ---- */
-Route::get('/manager', function () {
-    return view('managerDashboard');
-})->name('manager');
-Route::get('/resetPasswordFromManager', function () {
-    return view('resetPasswordFromManager');
-});
-Route::get('/manager/createBills', function () {
-    return view('createBills');
-});
-
-Route::get('/manager/createuser', function () {return view('createUsers');});
-
-Route::get('/manager/createpack', function () {return view('createPack');});
-
-Route::get('/manager/editEvents', function () {return view('editEvents');});
+Route::get('/manager', [UserController::class, 'managerDashboard'])->name('manager');
 
 Route::get('/manager/users', [UserController::class, 'index'])->name('manager.users');
 

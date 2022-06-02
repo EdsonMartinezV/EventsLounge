@@ -9,12 +9,7 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
-    public function viewModelTable(User $user)
-    {
-        return $user->isManager();
-    }
-
-    public function resetUserPassword(User $user)
+    public function managerAction(User $user)
     {
         return $user->isManager();
     }
