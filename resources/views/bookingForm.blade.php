@@ -18,9 +18,6 @@
                 <div class="card-body">
                 <center><h1>Haz tu reserva</h1></center>
                     <form method="POST">
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Tipo de evento" name="name">
-                        </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
