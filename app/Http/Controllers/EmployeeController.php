@@ -14,6 +14,16 @@ use Illuminate\Support\File;
 
 class EmployeeController extends Controller
 {
+    public function dashboard() {
+        $this->authorize('employeeAction');
+        return view('employeeDashboard');
+    }
+
+    public function showEvents() {
+        $this->authorize('employeeAction');
+        return view('showEvents');
+    }
+
     public function eventsConfirmated(){
         $this->authorize('employeeAction');
         $bookings= Event::where([['is_confirmed','=',1],['is_realized','=',0]])->get();
