@@ -77,4 +77,15 @@ class ClientController extends Controller
             }
         return redirect()->route('client.add.image',$id);
     }
+
+    public function deleteImage(Request $request, $id){
+        $idEvent = $request->event;
+        $imagenes = Image::select('url')->find($id);
+
+        unlink(public_path($imagenes['url']));
+        
+        Image::where('id',$id)->delete();
+
+        return redirect()->route('client.add.image',$idEvent);
+    }
 }

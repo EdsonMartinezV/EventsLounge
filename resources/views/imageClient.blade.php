@@ -45,7 +45,7 @@
                             </form>
 
                             @if($image->user_id == Auth::user()->id)
-                            <form action="/manager/images/delete/{{$image->id}}" class="form-horizontal" method="post">
+                            <form action="/delete-image/{{$image->id}}" class="form-horizontal" method="post">
                                 @csrf
                                     <input id="nombre" name="event" type="text" value="{{$image->event_id}}" class="form-control" hidden>
                                 @method('DELETE')

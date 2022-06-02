@@ -140,6 +140,8 @@ Route::get('/update-image/{id}',[ClientController::class, 'UpdateImage'])->name(
 
 Route::post('/add-new-image/{id}',[ClientController::class, 'addNewImage'])->name('client.add.new.image');
 
+Route::delete('/delete-image/{id}',[ClientController::class, 'deleteImage'])->name('client.delete.image');
+
 //rutas empleado
 Route::get('/events-realized',[EmployeeController::class, 'eventsRealized'])->name('employee.realized');
 
