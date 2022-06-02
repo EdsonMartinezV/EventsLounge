@@ -29,5 +29,6 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('managerAction', [UserPolicy::class, 'managerAction']);
+        Gate::define('employeeAction', [UserPolicy::class, 'employeeAction']);
     }
 }

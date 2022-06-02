@@ -14,6 +14,11 @@ class UserPolicy
         return $user->isManager();
     }
 
+    public function employeeAction(User $user)
+    {
+        return $user->isEmployee();
+    }
+
     /**
      * Determine whether the user can view any models.
      *
