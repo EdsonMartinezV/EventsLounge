@@ -112,6 +112,9 @@ Route::put('/manager/images/change/{id}',[EventController::class, 'changeImages'
 Route::delete('/manager/images/delete/{id}',[EventController::class, 'deleteImages'])->name('manager.events.images.change');
 
 /* ---- Rutas cliente ---- */
+
+
+
 Route::get('/my-bookings',[ClientController::class, 'myBookings'])->name('client.bookings');
 
 Route::delete('/delete-bookings',[ClientController::class, 'deleteBookings'])->name('delete.bookings');
