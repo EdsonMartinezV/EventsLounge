@@ -27,7 +27,7 @@
 		    	<a id="eventsButton"><img src="/images/evento.png" width="30px"> Ver Eventos</a>
 		    	<a id="paidsButton"><img src="/images/pago.png" width="30px"> Ver abonos</a>
 				<a id="billsButton"><img src="/images/bills.png" width="30px"> Ver gastos</a>
-				<a id="imagesButton"><img src="" width="30px"> Modificar Imagenes</a>
+				<a id="imagesButton"><img src="/images/foto.png" width="30px"> Modificar Imagenes</a>
 		    </nav>
 		    <label for="btn-menu">✖️</label>
 	    </div>
