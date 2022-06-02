@@ -59,9 +59,8 @@ Route::post('/validate',[UserController::class, 'validateUser'])->name('user.val
 Route::post('/register-user',[UserController::class, 'registerUser'])->name('user.register');
 
 /* ---- Employee Routes ---- */
-Route::get('/employee', function () {
-    return view('employeeDashboard');
-});
+Route::get('/employee', [EmployeeController::class, 'dashboard']);
+
 Route::get('/employee/showEvents', function () {
     return view('showEvents');
 });
